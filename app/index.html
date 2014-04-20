@@ -22,33 +22,29 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
-    <div class="off-canvas-wrap" data-offcanvas>
+    <div class="off-canvas-wrap" ng-controller="OffCanvasDemoCtrl">
       <div class="inner-wrap">
         <nav class="tab-bar">
           <section class="left-small">
-            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
           </section>
 
           <section class="middle tab-bar-section">
-            <h1 class="title">Mintpal Market</h1>
+            <h1 class="title">OffCanvas</h1>
           </section>
+
         </nav>
 
         <aside class="left-off-canvas-menu">
-        <ul class="off-canvas-list">
-        <li><label>Foundation</label></li>
-        <li><a href="#">The Psychohistorians</a></li>
-        <li><a href="#">...</a></li>
-        </ul>
+          <ul class="off-canvas-list">
+            <li><a href="#">Left Sidebar</a></li>
+          </ul>
         </aside>
 
-        <!-- Add your site or application content here -->
         <section class="main-section" ng-view="">
-        <!-- content goes here -->
         </section>
 
         <a class="exit-off-canvas"></a>
-
       </div>
     </div>
 
