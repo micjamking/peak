@@ -448,6 +448,11 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin'
+    'shell:phonegapBuild'
+  ]);
+
+  grunt.registerTask('run', [
+    'shell:phonegapRun'
   ]);
 
   grunt.registerTask('default', [
