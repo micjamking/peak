@@ -386,6 +386,22 @@ module.exports = function (grunt) {
         singleRun: true
       }
     }
+
+    // Run Cordova commands to build mobile app
+    shell: {
+      phonegapBuild: {
+        command: 'cd phonegap && cordova build',
+        options: {
+          stdout: true
+        }
+      },
+      phonegapRun: {
+        command: 'cd phonegap && cordova run ios',
+        options: {
+          stdout: true
+        }
+      }
+    }
   });
 
 
