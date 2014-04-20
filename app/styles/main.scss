@@ -1,2 +1,118 @@
 @import "foundation/scss/normalize";
 @import "foundation/scss/foundation";
+@import "../bower_components/angular-loading-bar/src/loading-bar.css";
+
+$green: #6bbf46;
+
+body {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    background-color: #FEFEFE;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.tab-bar h1 {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 300;
+    
+    .green {
+        color: $green;
+    }
+}
+
+.main-section {
+    margin-top: emCalc(65px);
+}
+
+.pricing-table {
+    opacity:1;
+    transition: all 0.5s ease;
+    
+    .title {
+        background-color: #F6F6F6;
+        color: #333333;
+        font-size: 0.875rem;
+        font-weight: 400;
+        padding: 0.9375rem;
+    }
+    
+    .bullet-item {
+        padding: 0;
+        
+        .accordion {
+            
+            dd > a {
+                background: transparent;
+                color: inherit;
+                padding: 0.9375rem;
+                font-family: inherit;
+                font-size: 0.875rem;
+            }
+            
+            .content {
+                font-weight: 300;
+                background-color: #F6F6F6;
+                padding: 0.9375rem;
+                border-top: dotted 1px #dddddd;
+
+                .market-stats {
+
+                    .stat {
+                        padding-bottom: emCalc(10px);
+                        
+                        .text-left {
+                            font-weight: 400;
+                        }
+                        
+                        &.bid {
+                            padding-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .up {
+            color: $green;
+        }
+
+        .down {
+            color: #db4c3c;
+        }
+    }
+    
+    &.ng-hide-add,
+    &.ng-hide-remove {
+        display: block !important;
+    }
+    
+    &.ng-hide {
+        opacity:0;
+    }
+
+}
+
+
+#loading-bar {
+    
+    .bar {
+        background: $green;
+    }
+
+    .peg {
+        box-shadow: $green 1px 0 6px 1px;
+    }
+}
+
+#loading-bar-spinner {
+    top: 50%;
+    left: 50%;
+    margin: emCalc(-7px) 0 0 emCalc(-7px);
+  
+    .spinner-icon {
+        border-top-color:  $green;
+        border-left-color: $green;
+    }
+}

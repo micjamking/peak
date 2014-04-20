@@ -3,6 +3,8 @@
 angular.module('mintpalMarketApp', [
   'ngResource',
   'ngRoute',
+  'ngAnimate',
+  'chieffancypants.loadingBar',
   'mm.foundation'
 ]).config(function ($routeProvider) {
     $routeProvider

@@ -1,36 +1,73 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">mintpal market</h3>
-</div>
-
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
+<!-- Main View -->
+<div class="container main" ng-cloak>
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="pricing-table" ng-show="data">
+        <li class="title">
+          <div class="row">
+            <div class="small-4 columns text-left">Coin</div>
+            <div class="small-4 columns text-left">Price</div>
+            <div class="small-4 columns text-right">Change</div>
+          </div>
+        </li>
+        <li ng-repeat="item in data" class="bullet-item">
+          <accordion close-others="true">
+            <accordion-group>
+              <accordion-heading>
+              <div class="row">
+                <div class="small-4 columns text-left">
+                  {{ item.code }}
+                </div>
+                <div class="small-4 columns text-left">
+                  {{ item.last_price }}
+                </div>
+                <div class="small-4 columns text-right" 
+                     ng-class="{true:'up',false:'down'}[item.change >= 0]">
+                  {{ item.change  }}%
+                </div>
+              </div>
+              </accordion-heading>
+              <div class="market-stats">
+                <div class="row stat ask">
+                  <div class="small-4 columns text-left">Top Ask: </div>
+                  <div class="small-8 columns text-right">{{ item.top_ask }} BTC</div>
+                </div>
+                <div class="row stat bid">
+                  <div class="small-4 columns text-left">Top Bid: </div>
+                  <div class="small-8 columns text-right">{{ item.top_bid }} BTC</div>
+                </div>
+                <hr />
+                <div class="row stat">
+                  <div class="small-4 columns text-left">24 High: </div>
+                  <div class="small-8 columns text-right">{{ item.24hhigh }}</div>
+                </div>
+                <div class="row stat">
+                  <div class="small-4 columns text-left">24 Low: </div>
+                  <div class="small-8 columns text-right">{{ item.24hlow }}</div>
+                </div>
+                <div class="row stat">
+                  <div class="small-4 columns text-left">24 Vol: </div>
+                  <div class="small-8 columns text-right">{{ item.24hvol }} BTC</div>
+                </div>
+              </div>
+            </accordion-group>
+          </accordion>
+        </li>
+        <!--<li ng-repeat="item in data" class="bullet-item">
+          <div class="row">
+            <div class="small-4 columns text-left">
+              {{ item.code }}
+            </div>
+            <div class="small-4 columns text-left">
+              {{ item.last_price }}
+            </div>
+            <div class="small-4 columns text-right" 
+                 ng-class="{true:'up',false:'down'}[item.change >= 0]">
+              {{ item.change  }}%
+            </div>
+          </div>
+        </li>-->
+      </ul>
+    </div>
+  </div>
 </div>

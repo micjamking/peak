@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Titillium+Web:300' rel='stylesheet' type='text/css'>
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -22,19 +23,25 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
-    <div class="off-canvas-wrap" ng-controller="OffCanvasDemoCtrl">
+    <div class="off-canvas-wrap" ng-controller="NavigationCtrl">
       <div class="inner-wrap">
-        <nav class="tab-bar">
-          <section class="left-small">
-            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-          </section>
+        <div class="fixed">
+          <nav class="tab-bar">
+<!--             <section class="left-small">
+              <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section> -->
 
-          <section class="middle tab-bar-section">
-            <h1 class="title">OffCanvas</h1>
-          </section>
+            <section class="middle tab-bar-section">
+              <h1 class="title"><span class="green">MintPal</span> Market</h1>
+            </section>
 
-        </nav>
+<!--             <section class="right-small">
+              <a class="menu-icon"><span></span></a>
+            </section> -->
 
+          </nav>
+        </div>
+        
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
             <li><a href="#">Left Sidebar</a></li>
@@ -70,6 +77,8 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbower -->
     <script src="bower_components/angular-foundation/mm-foundation-tpls-0.2.0-SNAPSHOT.min.js"></script>
     <!-- endbuild -->
@@ -77,6 +86,7 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/navigation.js"></script>
     <!-- endbuild -->
 </body>
 </html>
