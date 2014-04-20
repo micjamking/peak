@@ -385,7 +385,7 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
-    }
+    },
 
     // Run Cordova commands to build mobile app
     shell: {
