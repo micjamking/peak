@@ -8,7 +8,7 @@
     "angular-resource": "1.2.6",
     "angular-route": "1.2.6",
     "foundation": "~5.2.2",
-    "angular-foundation": "git@github.com:madmimi/angular-foundation.git#gh-pages"
+    "angular-foundation": "git@github.com:circlingthesun/angular-foundation.git#gh-pages"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",
