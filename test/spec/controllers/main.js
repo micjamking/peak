@@ -17,6 +17,6 @@ describe('Controller: MainCtrl', function () {
   }));
 
   it('should attach a getMarket to the scope', function () {
-    expect(scope.getMarket.length).toBeDefined;
+    expect(scope.getMarket).toBeDefined;
   });
 });
