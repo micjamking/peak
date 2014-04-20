@@ -7,4 +7,7 @@ angular.module('mintpalMarketApp')
       'AngularJS',
       'Karma'
     ];
-  });
+  })
+  .controller('OffCanvasDemoCtrl', function ($scope) {
+    $scope.menuItems = [];
+  });;
