@@ -447,7 +447,7 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
     'shell:phonegapBuild'
   ]);
 
