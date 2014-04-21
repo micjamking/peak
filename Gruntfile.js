@@ -320,7 +320,7 @@ module.exports = function (grunt) {
             'bower_components/es5-shim/*',
             'bower_components/json3/**/*',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/**/*'
           ]
         }, {
           expand: true,
