@@ -1,6 +1,6 @@
-# MintPal Market
+# Peak
 
-*A simple mobile app to view the market stats from [mintpal.com](http://www.mintpal.com)*
+*A simple mobile app for viewing cryptocurrency market stats
 
 ## Installation
 
