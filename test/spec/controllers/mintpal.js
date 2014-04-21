@@ -1,22 +1,22 @@
 'use strict';
 
-describe('Controller: NavigationCtrl', function () {
+describe('Controller: MintPalCtrl', function () {
 
   // load the controller's module
   beforeEach(module('peakApp'));
 
-  var NavigationCtrl,
+  var MintPalCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    NavigationCtrl = $controller('NavigationCtrl', {
+    MintPalCtrl = $controller('MintPalCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should attach a market to the scope', function () {
+    expect(scope.market).toBeDefined();
   });
 });

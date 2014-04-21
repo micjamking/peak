@@ -1,14 +1,14 @@
 'use strict';
 
-angular.module('mintpalMarketApp')
-  .controller('NavigationCtrl', function ($scope, cfpLoadingBar) {
+angular.module('peakApp')
+  .controller('NavigationCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
-    $scope.start = function() {
-      cfpLoadingBar.start();
-    };
+//     $scope.start = function() {
+//       cfpLoadingBar.start();
+//     };
   });

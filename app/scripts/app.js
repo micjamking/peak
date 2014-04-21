@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mintpalMarketApp', [
+angular.module('peakApp', [
   'ngResource',
   'ngRoute',
   'ngAnimate',
@@ -9,8 +9,8 @@ angular.module('mintpalMarketApp', [
 ]).config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/mintpal.html',
+        controller: 'MintPalCtrl'
       })
       .otherwise({
         redirectTo: '/'
