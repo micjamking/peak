@@ -5,12 +5,15 @@
       <ul class="pricing-table" ng-show="data">
         <li class="title">
           <div class="row">
-            <div class="small-4 columns text-left">Coin</div>
-            <div class="small-4 columns text-left">Price</div>
-            <div class="small-4 columns text-right">Change</div>
+            <div class="small-4 columns text-left"
+                 ng-click="predicate = 'code'; reverse=!reverse">Coin</div>
+            <div class="small-4 columns text-left"
+                 ng-click="predicate = 'last_price'; reverse=!reverse">Price</div>
+            <div class="small-4 columns text-right"
+                 ng-click="predicate = 'change'; reverse=!reverse">Change</div>
           </div>
         </li>
-        <li ng-repeat="item in data" class="bullet-item">
+        <li ng-repeat="item in data | orderBy:predicate:reverse" class="bullet-item">
           <accordion close-others="true">
             <accordion-group>
               <accordion-heading>
@@ -22,8 +25,8 @@
                   {{ item.last_price }}
                 </div>
                 <div class="small-4 columns text-right" 
-                     ng-class="{true:'up',false:'down'}[item.change >= 0]">
-                  {{ item.change  }}%
+                     ng-class="{'up': item.change > 0, 'down':item.change < 0}">
+                  {{ item.change > 0 ? '+' : '' }}{{ item.change }}{{ item.change === 0 ? '.00' : '' }}%
                 </div>
               </div>
               </accordion-heading>
@@ -53,20 +56,6 @@
             </accordion-group>
           </accordion>
         </li>
-        <!--<li ng-repeat="item in data" class="bullet-item">
-          <div class="row">
-            <div class="small-4 columns text-left">
-              {{ item.code }}
-            </div>
-            <div class="small-4 columns text-left">
-              {{ item.last_price }}
-            </div>
-            <div class="small-4 columns text-right" 
-                 ng-class="{true:'up',false:'down'}[item.change >= 0]">
-              {{ item.change  }}%
-            </div>
-          </div>
-        </li>-->
       </ul>
     </div>
   </div>
