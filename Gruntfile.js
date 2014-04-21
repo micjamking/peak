@@ -197,7 +197,7 @@ module.exports = function (grunt) {
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
-        relativeAssets: true,
+        relativeAssets: false,
         assetCacheBuster: false,
         raw: 'Sass::Script::Number.precision = 10\n'
       },
@@ -221,7 +221,7 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/styles/fonts/{,*/}*.{eot,svg,ttf,woff}'
+            '<%= yeoman.dist %>/styles/fonts/{,*/}*.{eot,ttf,woff,svg}'
           ]
         }
       }
@@ -320,7 +320,7 @@ module.exports = function (grunt) {
             'bower_components/es5-shim/*',
             'bower_components/json3/**/*',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.{eot,svg,ttf,woff}'
+            'styles/fonts/{,*/}*.{eot,ttf,woff,svg}'
           ]
         }, {
           expand: true,
