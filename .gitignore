@@ -15,5 +15,14 @@ dist
 .tmp
 .sass-cache
 app/bower_components
-phonegap/platforms
+
+# Ignore everything in the "phonegap" directory, except the "platforms"
+# "www", "config.xml", "hooks",and "plugins" directories.
+phonegap/*
+!phonegap/plugins/
+!phonegap/platforms/
+phonegap/platforms/*
+!phonegap/www/
 phonegap/www/*
+!phonegap/hooks
+!phonegap/config.xml
