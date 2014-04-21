@@ -8,7 +8,7 @@ angular.module('mintpalMarketApp').controller('MainCtrl', function ($scope, $htt
 		var i;
 
 		for (i = 0; i < array.length; i++){
-			array[i]["change"] = +(parseFloat(array[i]["change"]).toFixed(2));
+			array[i].change = +(parseFloat(array[i].change).toFixed(2));
 		}
 		
 		return array;
@@ -17,7 +17,7 @@ angular.module('mintpalMarketApp').controller('MainCtrl', function ($scope, $htt
 	$scope.getMarket = function(){
 		$http.jsonp('http://whateverorigin.org/get?url=' + encodeURIComponent(url) + '&callback=JSON_CALLBACK').success(function(data){
 			$scope.data = dataProcessing(angular.fromJson(data.contents));
-			console.log(dataProcessing($scope.data));
+			//console.log(dataProcessing($scope.data));
 		});
 	};
 
