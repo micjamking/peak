@@ -503,8 +503,7 @@ module.exports = function (grunt) {
     'htmlmin',
     'clean:appImages',
     'copy:imagesiOS',
-    'copy:imagesAndroid',
-    'shell:phonegapBuild'
+    'copy:imagesAndroid'
   ]);
 
   grunt.registerTask('run', [
@@ -519,6 +518,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build'
+    'build',
+    'shell:phonegapBuild'
   ]);
 };
