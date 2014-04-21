@@ -1,0 +1,72 @@
+$green: #6bbf46;
+
+/* Make clicks pass-through */
+#loading-bar,
+#loading-bar-spinner {
+  pointer-events: none;
+  -webkit-pointer-events: none;
+  transition: 350ms linear all;
+
+  &.ng-enter,
+  &.ng-leave.ng-leave-active{
+    opacity: 0;
+  }
+
+  &.ng-enter.ng-enter-active,
+  &.ng-leave {
+    opacity: 1;
+  }
+}
+
+#loading-bar {
+    .bar {
+      transition: width 350ms;
+
+      background: $green;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-bottom-right-radius: 1px;
+      border-top-right-radius: 1px;
+    }
+
+  /* Fancy blur effect */
+  .peg {
+    position: absolute;
+    width: 70px;
+    right: 0;
+    top: 0;
+    height: 2px;
+    opacity: .45;
+    box-shadow: $green 1px 0 6px 1px;
+    border-radius: 100%;
+  }
+}
+
+#loading-bar-spinner {
+  display: block;
+  position: fixed;
+  z-index: 2000;
+  top: 50%;
+  left: 50%;
+  margin: emCalc(-7px) 0 0 emCalc(-7px);
+
+  .spinner-icon {
+    width: 14px;
+    height: 14px;
+
+    border:  solid 2px transparent;
+    border-top-color:  $green;
+    border-left-color: $green;
+    border-radius: 10px;
+    animation:         loading-bar-spinner 400ms linear infinite;
+  }
+}
+
+@keyframes loading-bar-spinner {
+  0%   { transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { transform: rotate(360deg); transform: rotate(360deg); }
+}

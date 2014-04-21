@@ -1,9 +1,7 @@
 @import "foundation/scss/normalize";
 @import "foundation/scss/foundation";
-@import "../bower_components/angular-loading-bar/src/loading-bar.css";
-@import "fonts/foundation-icons/foundation-icons.css";
-
-$green: #6bbf46;
+@import "loading-bar";
+@import "foundation-icons";
 
 body {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -93,27 +91,4 @@ body {
         opacity:0;
     }
 
-}
-
-
-#loading-bar {
-    
-    .bar {
-        background: $green;
-    }
-
-    .peg {
-        box-shadow: $green 1px 0 6px 1px;
-    }
-}
-
-#loading-bar-spinner {
-    top: 50%;
-    left: 50%;
-    margin: emCalc(-7px) 0 0 emCalc(-7px);
-  
-    .spinner-icon {
-        border-top-color:  $green;
-        border-left-color: $green;
-    }
 }
