@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Angular Module definition
+   ========================================================================== */
 'use strict';
 
 angular.module('peakApp', [
@@ -6,7 +9,11 @@ angular.module('peakApp', [
   'ngAnimate',
   'chieffancypants.loadingBar',
   'mm.foundation'
-]).config(function ($routeProvider) {
+])
+.run(function(){
+    FastClick.attach(document.body);
+  })
+.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/mintpal.html',

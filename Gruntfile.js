@@ -157,7 +157,6 @@ module.exports = function (grunt) {
         src: 'karma.conf.js',
         exclude: [
           '<%= yeoman.app %>/bower_components/jquery',
-          '<%= yeoman.app %>/bower_components/fastclick',
           '<%= yeoman.app %>/bower_components/jquery.cookie',
           '<%= yeoman.app %>/bower_components/jquery-placeholder',
           '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',

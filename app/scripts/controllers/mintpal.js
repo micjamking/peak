@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Controller - MintPal
+   ========================================================================== */
 'use strict';
 
 angular.module('peakApp').controller('MintPalCtrl', function ($scope, $http, $interval) {
