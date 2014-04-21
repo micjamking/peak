@@ -148,11 +148,9 @@ module.exports = function (grunt) {
         ignorePath: '<%= yeoman.app %>/',
         exclude: [
           '<%= yeoman.app %>/bower_components/jquery',
-          '<%= yeoman.app %>/bower_components/fastclick',
           '<%= yeoman.app %>/bower_components/jquery.cookie',
           '<%= yeoman.app %>/bower_components/jquery-placeholder',
-          '<%= yeoman.app %>/bower_components/foundation/js/foundation.js',
-          '<%= yeoman.app %>/bower_components/angular-foundation/mm-foundation-tpls.js'
+          '<%= yeoman.app %>/bower_components/foundation/js/foundation.js'
         ]
       },
       test: {
@@ -162,12 +160,9 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/bower_components/fastclick',
           '<%= yeoman.app %>/bower_components/jquery.cookie',
           '<%= yeoman.app %>/bower_components/jquery-placeholder',
-          '<%= yeoman.app %>/bower_components/es5-shim/es5-shim.js',
-          '<%= yeoman.app %>/bower_components/json3/lib/json3.min.js',
           '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
           '<%= yeoman.app %>/bower_components/foundation/js/foundation.js',
-          '<%= yeoman.app %>/bower_components/angular-scenario/angular-scenario.js',
-          '<%= yeoman.app %>/bower_components/angular-foundation/mm-foundation-tpls.js'
+          '<%= yeoman.app %>/bower_components/angular-scenario/angular-scenario.js'
         ],
         devDependencies: true,
         fileTypes: {

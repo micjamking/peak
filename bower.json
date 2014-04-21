@@ -1,17 +1,14 @@
 {
   "name": "mintpal-market",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "angular": "1.2.6",
-    "json3": "~3.2.6",
-    "es5-shim": "~2.1.0",
     "angular-resource": "1.2.6",
     "angular-route": "1.2.6",
     "foundation": "~5.2.2",
     "angular-foundation": "git@github.com:circlingthesun/angular-foundation.git#gh-pages",
     "angular-loading-bar": "~0.4.0",
-    "angular-animate": "1.2.6",
-    "angular-touch": "1.2.6"
+    "angular-animate": "1.2.6"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",
