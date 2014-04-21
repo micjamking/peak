@@ -1,3 +1,15 @@
+# Ignore patterns for Worth mobile app
+
+# OSX files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+#Yeoman
 node_modules
 dist
 .tmp

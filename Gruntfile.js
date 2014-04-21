@@ -121,6 +121,8 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      images: '<%= yeoman.app %>/images/icons',
+      appImages: '<%= yeoman.dist %>/images',
       server: '.tmp'
     },
 
@@ -181,9 +183,6 @@ module.exports = function (grunt) {
         }
       }
     },
-
-
-
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -335,6 +334,24 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      imagesiOS: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/images/ios',
+        dest: 'phonegap/platforms/ios/Mintpal-Market/Resources/',
+        src: [
+          'icons/{,*/}*.{png,jpg}',
+          'splash/{,*/}*.{png,jpg}'
+        ]
+      },
+      imagesAndroid: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/images/android',
+        dest: 'phonegap/platforms/android/res/',
+        src: [
+          '{,*/}*.{png,jpg}',
+          '!playstore-icon.png'
+        ]
       }
     },
 
@@ -401,6 +418,42 @@ module.exports = function (grunt) {
           stdout: true
         }
       }
+    },
+    /*rasterize: {
+      your_target: {
+      vector: '<%= yeoman.app %>/images/AppIcon.svg',
+      raster: [
+          { path: '<%= yeoman.app %>/images/icons/icon.png', width: 57 },
+          { path: '<%= yeoman.app %>/images/icons/icon@2x.png', width: 114 },
+          { path: '<%= yeoman.app %>/images/icons/icon-small.png', width: 29 },
+          { path: '<%= yeoman.app %>/images/icons/icon-small@2x.png', width: 58 },
+          { path: '<%= yeoman.app %>/images/icons/icon-40.png', width: 40 },
+          { path: '<%= yeoman.app %>/images/icons/icon-40@2x.png', width: 80 },
+          { path: '<%= yeoman.app %>/images/icons/icon-50.png', width: 50 },
+          { path: '<%= yeoman.app %>/images/icons/icon-50@2x.png', width: 100 },
+          { path: '<%= yeoman.app %>/images/icons/icon-60.png', width: 60 },
+          { path: '<%= yeoman.app %>/images/icons/icon-60@2x.png', width: 120 },
+          { path: '<%= yeoman.app %>/images/icons/icon-72.png', width: 72 },
+          { path: '<%= yeoman.app %>/images/icons/icon-72@2x.png', width: 144 },
+          { path: '<%= yeoman.app %>/images/icons/icon-76.png', width: 76 },
+          { path: '<%= yeoman.app %>/images/icons/icon-76@2x.png', width: 152 },
+          { path: '<%= yeoman.app %>/images/icons/icon-36-ldpi.png', width: 36 },
+          { path: '<%= yeoman.app %>/images/icons/icon-48-mdpi.png', width: 48 },
+          { path: '<%= yeoman.app %>/images/icons/icon-72-hdpi.png', width: 72 },
+          { path: '<%= yeoman.app %>/images/icons/icon-96-xhdpi.png', width: 96 }
+        ]
+      }
+    }*/
+    favicons: {
+      options: {
+        androidHomescreen: true,
+        appleTouchPadding: 0,
+        windowsTile: false
+      },
+      icons: {
+        src: 'app/images/AppIcon.png',
+        dest: 'app/images/icons'
+      }
     }
   });
 
@@ -448,11 +501,19 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin',
+    'clean:appImages',
+    'copy:imagesiOS',
+    'copy:imagesAndroid',
     'shell:phonegapBuild'
   ]);
 
   grunt.registerTask('run', [
     'shell:phonegapRun'
+  ]);
+
+  grunt.registerTask('rasterize', [
+    'clean:images',
+    'favicons'
   ]);
 
   grunt.registerTask('default', [

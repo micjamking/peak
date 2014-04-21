@@ -19,6 +19,7 @@
     "grunt-contrib-jshint": "~0.7.1",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.5.2",
+    "grunt-favicons": "^0.6.4",
     "grunt-google-cdn": "~0.2.0",
     "grunt-karma": "^0.8.2",
     "grunt-newer": "~0.5.4",
