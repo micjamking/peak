@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+   
+body {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+.tab-bar h1 {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 300;
+    
+    .green {
+        color: $green;
+    }
+}

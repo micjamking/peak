@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+* {                                                                                                                            
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+} 
+
+body {
+    background-color: #FEFEFE;
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.main-section {
+    margin-top: emCalc(65px);
+    overflow-y: scroll;
+}

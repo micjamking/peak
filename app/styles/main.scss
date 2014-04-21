@@ -4,35 +4,9 @@
 @import "vendor/loading-bar";
 @import "vendor/foundation-icons";
 
+/* Base */
+@import "base/typography";
 
 /* Modules */
+@import "modules/layout";
 @import "modules/pricing-table";
-
-* {                                                                                                                            
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: transparent;
-} 
-
-body {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    background-color: #FEFEFE;
-    -webkit-text-size-adjust: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-.tab-bar h1 {
-    font-family: 'Titillium Web', sans-serif;
-    font-weight: 300;
-    
-    .green {
-        color: $green;
-    }
-}
-
-.main-section {
-    margin-top: emCalc(65px);
-}
-

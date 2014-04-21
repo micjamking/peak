@@ -20,26 +20,26 @@
   </head>
   <body ng-app="peakApp">
     
-    <div class="off-canvas-wrap" ng-controller="NavigationCtrl">
+    <div class="off-canvas-wrap" ng-controller="MainCtrl">
       <div class="inner-wrap">
         <div class="fixed">
           <nav class="tab-bar">
-<!--             <section class="left-small">
+            <section class="left-small">
               <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-            </section> -->
+            </section>
 
             <section class="middle tab-bar-section">
               <h1 class="title"><span class="green"><i class="fi-mountains"></i></span> Peak</h1>
             </section>
 
-<!--             <section class="right-small">
+            <!-- <section class="right-small">
               <a class="menu-icon"><span></span></a>
             </section> -->
 
           </nav>
         </div>
         
-        <aside class="left-off-canvas-menu">
+        <aside class="left-off-canvas-menu" ng-controller="NavigationCtrl">
           <ul class="off-canvas-list">
             <li><a href="#">Left Sidebar</a></li>
           </ul>
@@ -66,6 +66,7 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/mintpal.js"></script>
     <script src="scripts/controllers/navigation.js"></script>
     <!-- endbuild -->

@@ -1,6 +1,7 @@
 {
-  "name": "mintpal-market",
-  "version": "0.0.2",
+  "name": "Peak",
+  "description": "Mobile app to for Cryptocurrency exchange markets",
+  "version": "0.1.0",
   "dependencies": {
     "angular": "1.2.6",
     "angular-resource": "1.2.6",

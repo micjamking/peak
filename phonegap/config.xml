@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.mikeking.mintpalmarket" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MintPal Market</name>
-    <description>
-        A simple app for MintPal Cryptocurrency Market
-    </description>
-    <author email="mike@85pixels.com" href="http://85pixels.com">
-        Mike King
-    </author>
-    <preference name="target-device" value="handset" />
-    <preference name="DisallowOverscroll" value="true" />
-    <content src="index.html" />
-    <access origin="*" />
+	<name>Peak</name>
+	<description>
+		A simple mobile app for viewing Cryptocurrency Markets
+	</description>
+	<author email="mike@85pixels.com" href="http://85pixels.com">
+		Mike King
+	</author>
+	<preference name="target-device" value="handset" />
+	<preference name="DisallowOverscroll" value="true" />
+	<content src="index.html" />
+	<access origin="*" />
 </widget>
