@@ -32,20 +32,20 @@
               <h1 class="title"><span class="green"><i class="fi-mountains"></i></span> Peak</h1>
             </section>
 
-            <!-- <section class="right-small">
-              <a class="menu-icon"><span></span></a>
-            </section> -->
+            <section class="right-small">
+              <a ng-click="refresh()"><i class="fi-refresh"></i></a>
+            </section>
 
           </nav>
         </div>
         
         <aside class="left-off-canvas-menu" ng-controller="NavigationCtrl">
           <ul class="off-canvas-list">
-            <li><a href="#">Left Sidebar</a></li>
+            <li><a href="/">Mintpal</a></li>
           </ul>
         </aside>
 
-        <section class="main-section" ng-view="">
+        <section class="main-section" ng-view="" scroll-view>
         </section>
 
         <a class="exit-off-canvas"></a>
@@ -69,6 +69,7 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/mintpal.js"></script>
     <script src="scripts/controllers/navigation.js"></script>
+    <script src="scripts/directives/scrollview.js"></script>
     <!-- endbuild -->
 </body>
 </html>
