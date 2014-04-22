@@ -1,17 +1,17 @@
 <!-- Main View -->
-<div class="container cryptsy" ng-cloak>
+<div class="container poloniex" ng-cloak>
   <ul class="pricing-table heading">
     <li class="title">
       <div class="row">
         <div class="small-4 columns text text-left"
-             ng-class="{'down': predicate === 'primarycode' && reverse}"
-             ng-click="predicate = 'primarycode'; reverse=!reverse">Coin</div>
+             ng-class="{'down': predicate === 'code' && reverse}"
+             ng-click="predicate = 'code'; reverse=!reverse">Coin</div>
         <div class="small-4 columns text text-left"
-             ng-class="{'up': predicate === 'lasttradeprice' && !reverse, 'down': predicate === 'lasttradeprice' && reverse}"
-             ng-click="predicate = 'lasttradeprice'; reverse=!reverse">Price</div>
+             ng-class="{'up': predicate === 'last' && !reverse, 'down': predicate === 'last' && reverse}"
+             ng-click="predicate = 'last'; reverse=!reverse">Price</div>
         <div class="small-4 columns text text-right"
-             ng-class="{'up': predicate === 'change' && !reverse, 'down': predicate === 'change' && reverse}"
-             ng-click="predicate = 'change'; reverse=!reverse">Change</div>
+             ng-class="{'up': predicate === 'percentChange' && !reverse, 'down': predicate === 'percentChange' && reverse}"
+             ng-click="predicate = 'percentChange'; reverse=!reverse">Change</div>
       </div>
     </li>
   </ul>
@@ -22,25 +22,25 @@
           <accordion-heading>
           <div class="row">
             <div class="small-4 columns text-left">
-              {{ item.primarycode }}
+              {{ item.code }}
             </div>
             <div class="small-4 columns text-left">
-              {{ item.lasttradeprice }}
+              {{ item.last }}
             </div>
             <div class="small-4 columns text-right" 
-                 ng-class="{'up': item.change > 0, 'down':item.change < 0}">
-              {{ item.change > 0 ? '+' : '' }}{{ item.change }}{{ item.change === 0 ? '.00' : '' }}%
+                 ng-class="{'up': item.percentChange > 0, 'down':item.percentChange < 0}">
+              {{ item.percentChange > 0 ? '+' : '' }}{{ item.percentChange }}{{ item.percentChange === 0 ? '.00' : '' }}%
             </div>
           </div>
           </accordion-heading>
           <div class="market-stats">
             <div class="row stat ask">
               <div class="small-4 columns text-left">Top Ask: </div>
-              <div class="small-8 columns text-right">{{ item.sellorders[0].price }} BTC</div>
+              <div class="small-8 columns text-right">{{ item.lowestAsk }} BTC</div>
             </div>
             <div class="row stat bid">
               <div class="small-4 columns text-left">Top Bid: </div>
-              <div class="small-8 columns text-right">{{ item.buyorders[0].price }} BTC</div>
+              <div class="small-8 columns text-right">{{ item.highestBid }} BTC</div>
             </div>
             <hr />
             <!-- <div class="row stat">
@@ -50,10 +50,10 @@
             <div class="row stat">
               <div class="small-4 columns text-left">24 Low: </div>
               <div class="small-8 columns text-right">{{ item.24hlow }}</div>
-            </div> -->          
+            </div> -->
             <div class="row stat">
               <div class="small-4 columns text-left">24 Vol: </div>
-              <div class="small-8 columns text-right">{{ item.volume }} BTC</div>
+              <div class="small-8 columns text-right">{{ item.baseVolume }} BTC</div>
             </div>
           </div>
         </accordion-group>

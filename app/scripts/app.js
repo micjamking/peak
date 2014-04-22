@@ -23,6 +23,10 @@ angular.module('peakApp', [
         templateUrl: 'views/cryptsy.html',
         controller: 'CryptsyCtrl'
       })
+      .when('/poloniex', {
+        templateUrl: 'views/poloniex.html',
+        controller: 'PoloniexCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
