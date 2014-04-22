@@ -21,7 +21,6 @@ $green: #6bbf46;
 #loading-bar {
     .bar {
       transition: width 350ms;
-
       background: $green;
       position: fixed;
       z-index: 2000;
@@ -57,12 +56,11 @@ $green: #6bbf46;
   .spinner-icon {
     width: 14px;
     height: 14px;
-
     border:  solid 2px transparent;
     border-top-color:  $green;
     border-left-color: $green;
     border-radius: 10px;
-    animation:         loading-bar-spinner 400ms linear infinite;
+    animation:  loading-bar-spinner 400ms linear infinite;
   }
 }
 

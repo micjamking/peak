@@ -13,7 +13,7 @@ angular.module('peakApp', [
 .run(function(){
     FastClick.attach(document.body);
   })
-.config(function ($routeProvider) {
+.config(function ($routeProvider, cfpLoadingBarProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/mintpal.html',
@@ -22,4 +22,6 @@ angular.module('peakApp', [
       .otherwise({
         redirectTo: '/'
       });
+
+    cfpLoadingBarProvider.includeSpinner = false;
   });

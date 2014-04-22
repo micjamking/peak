@@ -5,13 +5,45 @@
 .pricing-table {
     opacity:1;
     transition: all 0.5s ease;
+    border: none;
     
     .title {
         background-color: #F6F6F6;
         color: #333333;
         font-size: 0.875rem;
         font-weight: 400;
-        padding: 0.9375rem;
+        padding: 0.9375rem 0;
+        
+        .text {
+            
+            &:after {
+                content: '';
+                display: inline-block;
+                width: 0; 
+                height: 0; 
+                margin-left: 5px;
+                position: relative;
+                top: -2px;
+            }
+            
+            &.up {
+                
+                &:after {
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-bottom: 5px solid #333333;
+                }
+            }
+            
+            &.down {
+                
+                &:after {
+                    border-top: 5px solid #333333;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                }
+            }
+        }
     }
     
     .bullet-item {
@@ -22,7 +54,7 @@
             dd > a {
                 background: transparent;
                 color: inherit;
-                padding: 0.9375rem;
+                padding: 0.9375rem 0;
                 font-family: inherit;
                 font-size: 0.875rem;
             }
@@ -56,6 +88,20 @@
 
         .down {
             color: #db4c3c;
+        }
+    }
+    
+    &.heading {
+        margin-bottom: 0;
+    }
+    
+    &.data {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 0;
+        
+        li:last-child {
+            margin-bottom: 1.25rem;
         }
     }
     

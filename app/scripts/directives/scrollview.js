@@ -12,7 +12,7 @@ angular.module('peakApp').directive('scrollView', function () {
         e         = d.documentElement,
         g         = d.getElementsByTagName('body')[0],
         y         = w.innerHeight || e.clientHeight || g.clientHeight,
-        marginTop = document.querySelector('.main-section').offsetTop,
+        marginTop = document.querySelector('.pricing-table.data').offsetTop,
         height    = (y - marginTop) + 'px';
 
     raw.style.height = height;

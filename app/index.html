@@ -31,22 +31,20 @@
             <section class="middle tab-bar-section">
               <h1 class="title"><span class="green"><i class="fi-mountains"></i></span> Peak</h1>
             </section>
-
-            <section class="right-small">
-              <a ng-click="refresh()"><i class="fi-refresh"></i></a>
-            </section>
-
           </nav>
         </div>
         
         <aside class="left-off-canvas-menu" ng-controller="NavigationCtrl">
           <ul class="off-canvas-list">
-            <li><a href="/">Mintpal</a></li>
+            <li><label>Markets</label></li>
+            <li><a href="/">MintPal</a></li>
+            <li><a href="#">Cryptsy</a></li>
+            <li><a href="#">Bittrex</a></li>
+            <li><a href="#">Poloniex</a></li>
           </ul>
         </aside>
 
-        <section class="main-section" ng-view="" scroll-view>
-        </section>
+        <section class="main-section" ng-view=""></section>
 
         <a class="exit-off-canvas"></a>
       </div>
@@ -61,7 +59,7 @@
     <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbower -->
-    <script src="bower_components/angular-foundation/mm-foundation-tpls-0.2.0-SNAPSHOT.min.js"></script>
+    <script src="bower_components/angular-foundation/mm-foundation-tpls-0.2.0-SNAPSHOT.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
