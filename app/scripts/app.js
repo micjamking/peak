@@ -19,6 +19,10 @@ angular.module('peakApp', [
         templateUrl: 'views/mintpal.html',
         controller: 'MintPalCtrl'
       })
+      .when('/cryptsy', {
+        templateUrl: 'views/cryptsy.html',
+        controller: 'CryptsyCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

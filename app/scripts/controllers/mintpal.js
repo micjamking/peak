@@ -9,7 +9,10 @@ angular.module('peakApp').controller('MintPalCtrl', function ($scope, $http, $in
 	$scope.market = (function(){
 		
 		// Private Variables
-		var getMarket, dataProcessing, url;
+		var getMarket, dataProcessing, url, proxy;
+		
+		// JSON Proxy
+		proxy = 'http://glacial-chamber-5485.herokuapp.com/?url=';
 		
 		// API Endpoint
 		url = 'https://api.mintpal.com/v1/market/summary/BTC';
@@ -33,10 +36,10 @@ angular.module('peakApp').controller('MintPalCtrl', function ($scope, $http, $in
 		getMarket = function(){
 			
 			// API Call
-			$http.jsonp('http://whateverorigin.org/get?url=' + encodeURIComponent(url) + '&callback=JSON_CALLBACK').success(function(data){
+			$http.get(proxy + encodeURIComponent(url)).success(function(data){
 				
 				// Process response & store in $scope property
-				$scope.data = dataProcessing(angular.fromJson(data.contents));
+				$scope.data = dataProcessing(data);
 			});
 		};
 		
