@@ -36,8 +36,19 @@ body {
     }
 }
 
+.inner-wrap {
+    transition: all 500ms ease;
+}
+
+.move-right .exit-off-canvas {
+    transition: background 300ms ease;
+    box-shadow: -2px 0 2px rgba(0, 0, 0, 0.25), 
+                2px 0 2px rgba(0, 0, 0, 0.25);
+}
+
 .main-section {
     margin-top: emCalc(45px);
     padding-top: emCalc(20px);
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
