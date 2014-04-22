@@ -27,6 +27,10 @@ angular.module('peakApp', [
         templateUrl: 'views/poloniex.html',
         controller: 'PoloniexCtrl'
       })
+      .when('/bittrex', {
+        templateUrl: 'views/bittrex.html',
+        controller: 'BittrexCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

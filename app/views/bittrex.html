@@ -1,0 +1,63 @@
+<!-- Main View -->
+<div class="container bittrex" ng-cloak>
+  <ul class="pricing-table heading">
+    <li class="title">
+      <div class="row">
+        <div class="small-4 columns text text-left"
+             ng-class="{'down': predicate === 'MarketName' && reverse}"
+             ng-click="predicate = 'MarketName'; reverse=!reverse">Coin</div>
+        <div class="small-4 columns text text-left"
+             ng-class="{'up': predicate === 'Last' && !reverse, 'down': predicate === 'Last' && reverse}"
+             ng-click="predicate = 'Last'; reverse=!reverse">Price</div>
+        <div class="small-4 columns text text-right"
+             ng-class="{'up': predicate === 'change' && !reverse, 'down': predicate === 'change' && reverse}"
+             ng-click="predicate = 'change'; reverse=!reverse">Change</div>
+      </div>
+    </li>
+  </ul>
+  <ul class="pricing-table data" ng-show="data" scroll-view>  
+    <li ng-repeat="item in data | orderBy:predicate:reverse" class="bullet-item">
+      <accordion close-others="true">
+        <accordion-group>
+          <accordion-heading>
+          <div class="row">
+            <div class="small-4 columns text-left">
+              {{ item.MarketName }}
+            </div>
+            <div class="small-4 columns text-left">
+              {{ item.Last }}
+            </div>
+            <div class="small-4 columns text-right" 
+                 ng-class="{'up': item.change > 0, 'down':item.change < 0}">
+              {{ item.change > 0 ? '+' : '' }}{{ item.change }}{{ item.change === 0 ? '.00' : '' }}%
+            </div>
+          </div>
+          </accordion-heading>
+          <div class="market-stats">
+          <!-- <div class="row stat ask">
+              <div class="small-4 columns text-left">Top Ask: </div>
+              <div class="small-8 columns text-right">{{ item.top_ask }} BTC</div>
+            </div>
+            <div class="row stat bid">
+              <div class="small-4 columns text-left">Top Bid: </div>
+              <div class="small-8 columns text-right">{{ item.top_bid }} BTC</div>
+            </div>
+            <hr /> -->
+            <div class="row stat">
+              <div class="small-4 columns text-left">24 High: </div>
+              <div class="small-8 columns text-right">{{ item.High }}</div>
+            </div>
+            <div class="row stat">
+              <div class="small-4 columns text-left">24 Low: </div>
+              <div class="small-8 columns text-right">{{ item.Low }}</div>
+            </div>
+            <div class="row stat">
+              <div class="small-4 columns text-left">24 Vol: </div>
+              <div class="small-8 columns text-right">{{ item.BaseVolume }} BTC</div>
+            </div>
+          </div>
+        </accordion-group>
+      </accordion>
+    </li>
+  </ul>
+</div>
