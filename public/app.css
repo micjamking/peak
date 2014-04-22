@@ -1,0 +1,73 @@
+body {
+  padding: 2em 3em;
+  font-family: Helvetica, sans-serif;
+}
+h1 {
+  display: inline;
+  margin-right: 10px;
+}
+h2 {
+  margin-top: 1.5em;
+}
+#wrapper {
+  max-width: 650px;
+  margin: auto;
+}
+hr {
+  margin-top: 2.5em;
+}
+code {
+  padding: 0.04em 0.35em;
+  background-color: #EAEAEA;
+  border: 1px solid #C2C2C2;
+}
+#subtitle {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.finePrint {
+  font-size: 0.8em;
+}
+.gist {
+  margin-bottom: 1em;
+  font-size: 0.9em;
+  width: 100%;
+  -webkit-transition: width .3s ease-out;
+  -moz-transition: width .3s ease-out;
+  -o-transition: width .3s ease-out;
+  transition: width .3s ease-out;
+}
+.gist:hover {
+  width: 135%;
+}
+.urlEntry {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #C9C9C9;
+  border: 1px solid #818181;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.urlEntry span {
+  position: relative;
+}
+.urlEntry label {
+  position: absolute;
+  top: 0;
+  left: 0.5em;
+}
+.urlEntry input {
+  padding: 0.5em;
+}
+footer {
+  text-align: center;
+  font-family: monospace;
+}
+.nodejitsu-logo {
+  height: 34px;
+  vertical-align: middle;
+}
+.node-version {
+  color: #bbb;
+}
