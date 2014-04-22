@@ -37,10 +37,22 @@
         <aside class="left-off-canvas-menu" ng-controller="NavigationCtrl">
           <ul class="off-canvas-list">
             <li><label>Markets</label></li>
-            <li><a href="/">MintPal</a></li>
-            <li><a href="#/cryptsy">Cryptsy</a></li>
-            <li><a href="#/bittrex">Bittrex</a></li>
-            <li><a href="#/poloniex">Poloniex</a></li>
+            <li ng-class="{'selected': menuItem === 'mintpal'}" 
+                ng-click="menuItem = 'mintpal'">
+              <a href="/">MintPal</a>
+            </li>
+            <li ng-class="{'selected': menuItem === 'cryptsy'}" 
+                ng-click="menuItem = 'cryptsy'">
+              <a href="#/cryptsy">Cryptsy</a>
+            </li>
+            <li ng-class="{'selected': menuItem === 'bittrex'}" 
+                ng-click="menuItem = 'bittrex'">
+                <a href="#/bittrex">Bittrex</a>
+            </li>
+            <li ng-class="{'selected': menuItem === 'poloniex'}" 
+                ng-click="menuItem = 'poloniex'">
+                <a href="#/poloniex">Poloniex</a>
+            </li>
           </ul>
         </aside>
 

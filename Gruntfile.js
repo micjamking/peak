@@ -475,6 +475,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
+    'newer:jshint',
     'clean:server',
     'concurrent:test',
     'autoprefixer',

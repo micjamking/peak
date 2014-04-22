@@ -27,5 +27,14 @@ ul.off-canvas-list {
         a {
             font-weight: 300;
         }
+        
+        &.selected {
+            box-shadow: inset 2px 0 0 $green;
+            
+            a {
+                padding-left: 15px;
+                color: $green;
+            }
+        }
     }
 }
