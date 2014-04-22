@@ -17,6 +17,8 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+    
+    pkg: grunt.file.readJSON('package.json'),
 
     // Project settings
     yeoman: {
@@ -332,7 +334,7 @@ module.exports = function (grunt) {
       imagesiOS: {
         expand: true,
         cwd: '<%= yeoman.app %>/images/ios',
-        dest: 'phonegap/platforms/ios/Mintpal-Market/Resources/',
+        dest: 'phonegap/platforms/ios/<%= pkg.name %>/Resources/',
         src: [
           'icons/{,*/}*.{png,jpg}',
           'splash/{,*/}*.{png,jpg}'

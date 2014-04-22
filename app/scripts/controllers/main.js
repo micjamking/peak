@@ -23,7 +23,7 @@ angular.module('peakApp')
       raw.style.height = height;
 
       window.onresize = function(){
-          $scope.galleryHeight(raw);
+        $scope.galleryHeight(raw);
       };
     };
   });

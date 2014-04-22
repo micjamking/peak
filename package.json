@@ -1,6 +1,7 @@
 {
-  "name": "mintpalmarket",
-  "version": "0.0.2",
+  "name": "Peak",
+  "version": "0.1.0",
+  "description":"A simple mobile app for viewing cryptocurrency market stats",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
