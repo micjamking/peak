@@ -5,13 +5,15 @@
 body {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
+    -webkit-font-smoothing: antialiased;
 }
 
 .tab-bar h1 {
     font-family: 'Titillium Web', sans-serif;
     font-weight: 300;
-    
-    .green {
-        color: $green;
-    }
+    text-transform: capitalize;
+}
+
+.green {
+    color: $green;
 }

@@ -1,0 +1,30 @@
+<!-- Portfolio View -->
+<div class="container portfolio" ng-cloak>
+    <ul class="pricing-table">
+        <li class="price">{{ total | currency }}</li>  
+        <li class="bullet-item">
+            <accordion close-others="true">
+                <accordion-group>
+                    <accordion-heading>
+                        <div class="row">
+                            <div class="small-4 columns text-left">
+                            {{ item.primarycode }}
+                            </div>
+                            <div class="small-4 columns text-left">
+                            {{ item.lasttradeprice }}
+                            </div>
+                            <div class="small-4 columns text-right" 
+                            ng-class="{'up': item.change > 0, 'down':item.change < 0}">
+                            {{ item.change > 0 ? '+' : '' }}{{ item.change }}{{ item.change === 0 ? '.00' : '' }}%
+                            </div>
+                        </div>
+                    </accordion-heading>
+                    <div class="row"> 
+                        <div class="small-4 columns text-left">24 Vol: </div>
+                        <div class="small-8 columns text-right">{{ item.volume }} BTC</div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </li>
+    </ul>
+</div>

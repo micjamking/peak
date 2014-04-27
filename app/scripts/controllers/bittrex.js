@@ -50,7 +50,7 @@ angular.module('peakApp').controller('BittrexCtrl', function ($scope, $http, $in
 			$http.get(proxy + encodeURIComponent(url)).success(function(data){
 				// Process response & store in $scope property
 				$scope.data = dataProcessing(data.result);
-				console.log($scope.data);
+				//console.log($scope.data);
 			});
 		};
 

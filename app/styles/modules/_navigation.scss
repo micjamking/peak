@@ -2,8 +2,6 @@
    Navigation
    ========================================================================== */
 
-
-
 .tab-bar {
     box-shadow: inset 0 1px 0 0 rgba(26,26,26, 0.2);
     
@@ -17,23 +15,36 @@ ul.off-canvas-list {
         background: rgba(0,0,0,0.15);
         
         label {
-            padding-top: emCalc(11px);
-            padding-bottom: emCalc(11px);
             background: #333333;
             border-top: 1px solid rgba(26,26,26, 0.2);
             border-bottom: 1px solid #262626;
+            
+            &.branding {
+                padding-top: emCalc(8px);
+                padding-bottom: emCalc(8px);
+                font-family: 'Titillium Web', sans-serif;
+                font-weight: 300;
+                
+                .fi-mountains {
+                    margin-right: emCalc(5px);
+                    position: relative;
+                    top: 1px;
+                    font-size: emCalc(18px);
+                }
+            }
         }
         
         a {
             font-weight: 300;
+            text-transform: capitalize;
         }
         
         &.selected {
-            box-shadow: inset 2px 0 0 $green;
             
             a {
-                padding-left: 15px;
-                color: $green;
+                padding-left: 18px;
+                box-shadow: inset 3px 0 0 $green;
+                color: white;
             }
         }
     }

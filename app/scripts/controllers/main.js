@@ -3,16 +3,18 @@
    ========================================================================== */
 'use strict';
 
-angular.module('peakApp').controller('MainCtrl', function ($scope) {
-    
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Karma'
-  ];
+angular.module('peakApp').controller('MainCtrl', function ($scope, $rootScope, $location) {
   
-  $scope.refresh = function(){
-    var mintpal = angular.element(document.querySelector('.mintpal')).scope().market;
-    mintpal.update();
-  };
+  // Main Module
+  $scope.main = (function(){
+    
+    // Setting menuItem based on location path
+    if ($location.path() === '/' || $location.path() === '') {
+      $rootScope.menuItem = 'overview';
+    } else {
+      $rootScope.menuItem = $location.path().substring(1);
+    }
+  
+    return {};
+  })();
 });

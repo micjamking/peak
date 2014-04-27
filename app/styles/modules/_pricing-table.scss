@@ -6,16 +6,21 @@
     opacity:1;
     transition: all 0.5s ease;
     border: none;
-    
+    margin-bottom: 0;
+        
+    .price {
+        padding: emCalc(35px) emCalc(20px);
+    }
+
     .title {
         background-color: #F6F6F6;
         color: #333333;
         font-size: 0.875rem;
         font-weight: 400;
         padding: 0.9375rem 0;
-        
+
         .text {
-            
+
             &:after {
                 content: '';
                 display: inline-block;
@@ -25,18 +30,18 @@
                 position: relative;
                 top: -2px;
             }
-            
+
             &.up {
-                
+
                 &:after {
                     border-left: 5px solid transparent;
                     border-right: 5px solid transparent;
                     border-bottom: 5px solid #333333;
                 }
             }
-            
+
             &.down {
-                
+
                 &:after {
                     border-top: 5px solid #333333;
                     border-left: 5px solid transparent;
@@ -45,12 +50,12 @@
             }
         }
     }
-    
+
     .bullet-item {
         padding: 0;
-        
+
         .accordion {
-            
+
             dd > a {
                 background: transparent;
                 color: inherit;
@@ -58,7 +63,7 @@
                 font-family: inherit;
                 font-size: 0.875rem;
             }
-            
+
             .content {
                 font-weight: 300;
                 background-color: #F6F6F6;
@@ -69,11 +74,11 @@
 
                     .stat {
                         padding-bottom: emCalc(10px);
-                        
+
                         .text-left {
                             font-weight: 400;
                         }
-                        
+
                         &.bid {
                             padding-bottom: 0;
                         }
@@ -91,27 +96,26 @@
         }
     }
     
-    &.heading {
-        margin-bottom: 0;
-    }
-    
+    &.heading {                                                                                                               
+        margin-bottom: 0;                                                                                                     
+    }  
+
     &.data {
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
         margin-bottom: 0;
-        
+
         li:last-child {
             margin-bottom: 1.25rem;
         }
     }
-    
+
     &.ng-hide-add,
     &.ng-hide-remove {
         display: block !important;
     }
-    
+
     &.ng-hide {
         opacity:0;
     }
-
 }

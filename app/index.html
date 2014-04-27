@@ -29,29 +29,42 @@
             </section>
 
             <section class="middle tab-bar-section">
-              <h1 class="title"><span class="green"><i class="fi-mountains"></i></span> Peak</h1>
+              <h1 class="title">{{ menuItem }}</h1>
             </section>
           </nav>
         </div>
         
-        <aside class="left-off-canvas-menu" ng-controller="NavigationCtrl">
+        <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
+            <li><label class="branding"><span class="green"><i class="fi-mountains"></i></span> Peak</label></li>
+            <li ng-class="{'selected': menuItem === 'overview'}" 
+                ng-click="menuItem = 'overview'">
+              <a href="#/overview">overview</a>
+            </li>
+            <li ng-class="{'selected': menuItem === 'portfolio'}" 
+                ng-click="menuItem = 'portfolio'">
+              <a href="#/portfolio">portfolio</a>
+            </li>
+            <li ng-class="{'selected': menuItem === 'watchlist'}" 
+                ng-click="menuItem = 'watchlist'">
+              <a href="#/watchlist">watchlist</a>
+            </li>
             <li><label>Markets</label></li>
-            <li ng-class="{'selected': menuItem === 'mintpal'}" 
-                ng-click="menuItem = 'mintpal'">
-              <a href="#/">MintPal</a>
+            <li ng-class="{'selected': menuItem === 'bittrex'}" 
+                ng-click="menuItem = 'bittrex'">
+                <a href="#/bittrex">bittrex</a>
             </li>
             <li ng-class="{'selected': menuItem === 'cryptsy'}" 
                 ng-click="menuItem = 'cryptsy'">
-              <a href="#/cryptsy">Cryptsy</a>
+              <a href="#/cryptsy">cryptsy</a>
             </li>
-            <li ng-class="{'selected': menuItem === 'bittrex'}" 
-                ng-click="menuItem = 'bittrex'">
-                <a href="#/bittrex">Bittrex</a>
+            <li ng-class="{'selected': menuItem === 'mintpal'}" 
+                ng-click="menuItem = 'mintpal'">
+              <a href="#/">mintPal</a>
             </li>
             <li ng-class="{'selected': menuItem === 'poloniex'}" 
                 ng-click="menuItem = 'poloniex'">
-                <a href="#/poloniex">Poloniex</a>
+                <a href="#/poloniex">poloniex</a>
             </li>
           </ul>
         </aside>
@@ -76,13 +89,17 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <!-- Controllers -->
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/mintpal.js"></script>
     <script src="scripts/controllers/cryptsy.js"></script>
-    <script src="scripts/controllers/navigation.js"></script>
-    <script src="scripts/directives/scrollview.js"></script>
     <script src="scripts/controllers/poloniex.js"></script>
     <script src="scripts/controllers/bittrex.js"></script>
+    <!-- Directives -->
+    <script src="scripts/directives/scrollview.js"></script>
+    <script src="scripts/controllers/portfolio.js"></script>
+    <script src="scripts/controllers/watchlist.js"></script>
+    <script src="scripts/controllers/overview.js"></script>
     <!-- endbuild -->
 </body>
 </html>

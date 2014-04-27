@@ -15,7 +15,7 @@ angular.module('peakApp', [
   })
 .config(function ($routeProvider, cfpLoadingBarProvider) {
     $routeProvider
-      .when('/', {
+      .when('/mintpal', {
         templateUrl: 'views/mintpal.html',
         controller: 'MintPalCtrl'
       })
@@ -30,6 +30,18 @@ angular.module('peakApp', [
       .when('/bittrex', {
         templateUrl: 'views/bittrex.html',
         controller: 'BittrexCtrl'
+      })
+      .when('/portfolio', {
+        templateUrl: 'views/portfolio.html',
+        controller: 'PortfolioCtrl'
+      })
+      .when('/watchlist', {
+        templateUrl: 'views/watchlist.html',
+        controller: 'WatchlistCtrl'
+      })
+      .when('/', {
+        templateUrl: 'views/overview.html',
+        controller: 'OverviewCtrl'
       })
       .otherwise({
         redirectTo: '/'
