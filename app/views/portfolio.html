@@ -1,30 +1,48 @@
 <!-- Portfolio View -->
 <div class="container portfolio" ng-cloak>
     <ul class="pricing-table">
-        <li class="price">{{ total | currency }}</li>  
-        <li class="bullet-item">
-            <accordion close-others="true">
-                <accordion-group>
-                    <accordion-heading>
-                        <div class="row">
-                            <div class="small-4 columns text-left">
-                            {{ item.primarycode }}
-                            </div>
-                            <div class="small-4 columns text-left">
-                            {{ item.lasttradeprice }}
-                            </div>
-                            <div class="small-4 columns text-right" 
-                            ng-class="{'up': item.change > 0, 'down':item.change < 0}">
-                            {{ item.change > 0 ? '+' : '' }}{{ item.change }}{{ item.change === 0 ? '.00' : '' }}%
-                            </div>
-                        </div>
-                    </accordion-heading>
-                    <div class="row"> 
-                        <div class="small-4 columns text-left">24 Vol: </div>
-                        <div class="small-8 columns text-right">{{ item.volume }} BTC</div>
+        <li class="price">{{ portfolio.totalValue() }} BTC</li>
+        <li class="title header">
+            <div class="row"> 
+                <div class="small-4 columns text-left">
+                    Coin
+                </div>
+                <div class="small-8 columns text-right">
+                    Value
+                </div>
+            </div>
+        </li>
+        <li ng-repeat="currency in portfolio.holdings" class="bullet-item currency">
+            <div class="row">
+                <div class="small-6 columns text-left">{{ currency.coin }}</div>
+                <div class="small-6 columns text-right">{{ currency.amount*currency.cost }} BTC</div>
+            </div>
+        </li>
+        <li class="bullet-item add-holdings">
+            <form ng-submit="portfolio.addHolding()">
+                <div class="row"> 
+                    <div class="small-12 columns">
+                        <label>
+                            <select ng-model="coin" ng-options="coin.code for coin in data"></select>
+                        </label>
                     </div>
-                </accordion-group>
-            </accordion>
+                    <div class="small-6 columns text-left">
+                        <label>
+                            <input type="text" placeholder="Amount" ng-model="amount" />
+                        </label>
+                    </div>
+                    <div class="small-6 columns text-left">
+                        <label>
+                            <input type="text" placeholder="Price in BTC" ng-model="cost" />
+                        </label>
+                    </div> 
+                    <div class="small-12 columns">
+                        <input type="submit" class="button tiny radius expand" value="Add Coin" />
+                    </div>
+                </div>
+            </form>
+        </li>
+        <li>
         </li>
     </ul>
 </div>

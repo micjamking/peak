@@ -10,6 +10,15 @@
         
     .price {
         padding: emCalc(35px) emCalc(20px);
+        font-family: 'Titillium Web', sans-serif;
+        
+        &.positive {
+            background-color: $green;
+        }
+        
+        &.negative {
+            background-color: $red;
+        }
     }
 
     .title {
@@ -48,6 +57,11 @@
                     border-right: 5px solid transparent;
                 }
             }
+        }
+        
+        &.header {
+            background-color: #333333;
+            color: #eeeeee;
         }
     }
 
@@ -93,6 +107,14 @@
 
         .down {
             color: #db4c3c;
+        }
+        
+        &.add-holdings {
+            padding-top: 0.9375rem;
+        }
+        
+        &.currency {
+            padding: 0.9375rem 0;
         }
     }
     
