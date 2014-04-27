@@ -17,7 +17,7 @@ angular.module('peakApp').controller('MainCtrl', function ($scope, $rootScope, $
 
     var changeView = function(view){
       $location.path(view);
-      document.querySelector(".exit-off-canvas").click();
+      document.querySelector('.exit-off-canvas').click();
     };
 
     return {
