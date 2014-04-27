@@ -8,12 +8,13 @@ angular.module('peakApp', [
   'ngRoute',
   'ngAnimate',
   'chieffancypants.loadingBar',
-  'mm.foundation'
+  'mm.foundation',
+  'LocalStorageModule'
 ])
 .run(function(){
     FastClick.attach(document.body);
   })
-.config(function ($routeProvider, cfpLoadingBarProvider) {
+.config(function ($routeProvider, cfpLoadingBarProvider, localStorageServiceProvider) {
     $routeProvider
       .when('/mintpal', {
         templateUrl: 'views/mintpal.html',
@@ -48,4 +49,6 @@ angular.module('peakApp', [
       });
 
     cfpLoadingBarProvider.includeSpinner = false;
+    
+    localStorageServiceProvider.setPrefix('peakApp');
   });
