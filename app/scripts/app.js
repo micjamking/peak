@@ -7,6 +7,7 @@ angular.module('peakApp', [
   'ngResource',
   'ngRoute',
   'ngAnimate',
+  'ngTouch',
   'chieffancypants.loadingBar',
   'mm.foundation',
   'LocalStorageModule'
@@ -16,6 +17,10 @@ angular.module('peakApp', [
   })
 .config(function ($routeProvider, cfpLoadingBarProvider, localStorageServiceProvider) {
     $routeProvider
+      .when('/', {
+        templateUrl: 'views/overview.html',
+        controller: 'OverviewCtrl'
+      })
       .when('/mintpal', {
         templateUrl: 'views/mintpal.html',
         controller: 'MintPalCtrl'
@@ -39,10 +44,6 @@ angular.module('peakApp', [
       .when('/watchlist', {
         templateUrl: 'views/watchlist.html',
         controller: 'WatchlistCtrl'
-      })
-      .when('/', {
-        templateUrl: 'views/overview.html',
-        controller: 'OverviewCtrl'
       })
       .otherwise({
         redirectTo: '/'

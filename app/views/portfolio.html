@@ -7,18 +7,15 @@
                 <div class="small-4 columns text-left">
                     Coin
                 </div>
-                <div class="small-8 columns text-right">
-                    Value
+                <div class="small-4 columns text-left">
+                    Amount
+                </div>
+                <div class="small-4 columns text-right">
+                    Value (BTC)
                 </div>
             </div>
         </li>
-        <li ng-repeat="currency in portfolio.holdings" class="bullet-item currency">
-            <div class="row">
-                <div class="small-6 columns text-left">{{ currency.coin }}</div>
-                <div class="small-6 columns text-right">{{ currency.amount*currency.cost }} BTC</div>
-            </div>
-        </li>
-        <li class="bullet-item add-holdings">
+        <li class="bullet-item add-holdings" ng-show="toggleCurrency">
             <form ng-submit="portfolio.addHolding()">
                 <div class="row"> 
                     <div class="small-12 columns">
@@ -28,21 +25,33 @@
                     </div>
                     <div class="small-6 columns text-left">
                         <label>
-                            <input type="text" placeholder="Amount" ng-model="amount" />
+                            <input type="tel" placeholder="Amount" ng-model="amount" pattern="[0-9]*" />
                         </label>
                     </div>
                     <div class="small-6 columns text-left">
                         <label>
-                            <input type="text" placeholder="Price in BTC" ng-model="cost" />
+                            <input type="tel" placeholder="Price in BTC" ng-model="cost" pattern="[0-9]*" />
                         </label>
                     </div> 
                     <div class="small-12 columns">
-                        <input type="submit" class="button tiny radius expand" value="Add Coin" />
+                        <input type="submit" class="button small expand success" value="Add Coin" />
                     </div>
                 </div>
             </form>
         </li>
-        <li>
+    </ul>
+    <ul class="pricing-table data" ng-show="data" scroll-view>
+        <li ng-repeat="currency in portfolio.holdings" class="bullet-item currency">
+            <div class="row"
+                 ng-class="{'delete':currency.delete}"
+                 ng-swipe-left="currency.delete = true"
+                 ng-swipe-right="currency.delete = false">
+                <div class="small-4 columns text-left">{{ currency.coin }}</div>
+                <div class="small-4 columns text-left">{{ currency.amount | number:8 }}</div>
+                <div class="small-4 columns text-left">{{ currency.amount*currency.cost | number:8}}</div>
+            </div>
+            <button type="button" class="button alert small"
+                    ng-click="portfolio.removeHolding($index)">Delete</button>
         </li>
     </ul>
 </div>

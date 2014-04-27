@@ -19,6 +19,7 @@ module.exports = function(config) {
       'app/bower_components/angular-loading-bar/src/loading-bar.js',
       'app/bower_components/angular-animate/angular-animate.js',
       'app/bower_components/angular-local-storage/angular-local-storage.js',
+      'app/bower_components/angular-touch/angular-touch.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/bower_components/angular-foundation/mm-foundation-tpls-0.2.0-SNAPSHOT.min.js',

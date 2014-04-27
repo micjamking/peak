@@ -31,6 +31,14 @@
             <section class="middle tab-bar-section">
               <h1 class="title" ng-cloak>{{ menuItem }}</h1>
             </section>
+
+            <section class="right-small" ng-show="menuItem === 'portfolio'">
+              <a class="plus-sign" 
+                 ng-click="toggleCurrency = !toggleCurrency" ng-cloak>
+<!--                 <i class="fi-{{ toggleCurrency ? 'minus' : 'plus' }}"></i> -->
+                {{ toggleCurrency ? '-' : '+' }}
+              </a>
+            </section>
           </nav>
         </div>
         
@@ -60,7 +68,7 @@
             </li>
             <li ng-class="{'selected': menuItem === 'mintpal'}" 
                 ng-click="menuItem = 'mintpal'">
-              <a href="#/">mintPal</a>
+              <a href="#/mintpal">mintPal</a>
             </li>
             <li ng-class="{'selected': menuItem === 'poloniex'}" 
                 ng-click="menuItem = 'poloniex'">
@@ -84,6 +92,7 @@
     <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
     <!-- endbower -->
     <script src="bower_components/angular-foundation/mm-foundation-tpls-0.2.0-SNAPSHOT.js"></script>
     <!-- endbuild -->
@@ -92,15 +101,15 @@
     <script src="scripts/app.js"></script>
     <!-- Controllers -->
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/overview.js"></script>
+    <script src="scripts/controllers/portfolio.js"></script>
+    <script src="scripts/controllers/watchlist.js"></script>
     <script src="scripts/controllers/mintpal.js"></script>
     <script src="scripts/controllers/cryptsy.js"></script>
     <script src="scripts/controllers/poloniex.js"></script>
     <script src="scripts/controllers/bittrex.js"></script>
     <!-- Directives -->
     <script src="scripts/directives/scrollview.js"></script>
-    <script src="scripts/controllers/portfolio.js"></script>
-    <script src="scripts/controllers/watchlist.js"></script>
-    <script src="scripts/controllers/overview.js"></script>
     <!-- endbuild -->
 </body>
 </html>
