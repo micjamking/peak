@@ -14,7 +14,14 @@ angular.module('peakApp').controller('MainCtrl', function ($scope, $rootScope, $
     } else {
       $rootScope.menuItem = $location.path().substring(1);
     }
-  
-    return {};
+
+    var changeView = function(view){
+      $location.path(view);
+      document.querySelector(".exit-off-canvas").click();
+    };
+
+    return {
+      changeView:changeView
+    };
   })();
 });
