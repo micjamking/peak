@@ -4,7 +4,7 @@
         <li class="price">
         <div class="row">
             <div class="small-12 columns">
-                <h1>{{ portfolio.totalValue('gain') | number:8 }} BTC</h1>
+                <h1>{{ portfolio.totalValue('gain') }} BTC</h1>
             </div>
             <div class="small-12 columns">
                 <h6 class="text-center" ng-cloak
@@ -61,7 +61,9 @@
                 <div class="small-4 columns text-left">{{ currency.coin }}</div>
                 <div class="small-4 columns text-left">{{ currency.amount }}</div>
                 <div class="small-4 columns text-right"
-                     ng-class="{ true:'positive', false:'negative'}[(portfolio.currencyValue(currency.coin) - currency.cost) > 0]">{{ ((portfolio.currencyValue(currency.coin) - currency.cost)/currency.cost) * 100 | number:2}}%</div>
+                     ng-class="{ true:'positive', false:'negative'}[(portfolio.currencyValue(currency.coin) - currency.cost) > 0]">
+                     {{ ((portfolio.currencyValue(currency.coin) - currency.cost)/currency.cost) * 100 | number:2}}%
+                </div>
             </div>
             <button type="button" class="button alert small"
                     ng-click="portfolio.removeHolding($index)">Delete</button>

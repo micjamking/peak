@@ -3,7 +3,7 @@
    ========================================================================== */
 'use strict';
 
-angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, localStorageService, $interval, CSVParser) {
+angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, localStorageService, $interval, csvParser) {
 
     
     $scope.overview = (function(){
@@ -23,7 +23,7 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
 
       // Private Function
       dataProcessing = function(array){
-          var i, newArray = []; 
+          var i, newArray = [];
 
           // Loop through array
           for (i = 0; i < array.length; i += 120){
@@ -35,7 +35,7 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
           
           // Return array in reverse
           return newArray.reverse();
-      };
+        };
 
       // Private Function
       getMarket = (function(){
@@ -44,20 +44,20 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
           $http.get(PROXY + encodeURIComponent(BTC_PRICE)).success(function(data){
               // Process response & store in $scope property
               $scope.bitcoinPrice = data.amount;
-          });
+            });
           
           if ((TODAY.getTime() - localStorageService.get('timestamp')) >= ONE_DAY) {
             $http.get(PROXY + encodeURIComponent(BTC_HIST)).error(function(data){
               localStorageService.set('timestamp', TODAY.getTime());
-              localStorageService.set('chartData', dataProcessing(CSVParser(data.error)));
-              $scope.bitcoinChart = dataProcessing(CSVParser(data.error));
+              localStorageService.set('chartData', dataProcessing(csvParser(data.error)));
+              $scope.bitcoinChart = dataProcessing(csvParser(data.error));
             });
           } else {
             $scope.bitcoinChart = localStorageService.get('chartData');
           }
-      })();
+        })();
       
-      var chart = (function(){
+      chart = (function(){
         
         var int1 = $scope.bitcoinChart[0].value;
         var int2 = $scope.bitcoinChart[$scope.bitcoinChart.length - 1].value;
@@ -133,6 +133,6 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
       // Public API
       return {
           update: getMarket
-      };
+        };
     })();
   });

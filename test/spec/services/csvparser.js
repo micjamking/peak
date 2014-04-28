@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Service: csvparser', function () {
+describe('Service: csvParser', function () {
 
   // load the service's module
   beforeEach(module('peakApp'));

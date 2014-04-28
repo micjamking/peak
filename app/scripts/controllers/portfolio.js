@@ -52,18 +52,26 @@ angular.module('peakApp').controller('PortfolioCtrl', function ($scope, $http, l
     
     // Grab total from localStorage or set total to 0
     total = function(string){
-      var i, amount = 0;
+      var i, amount = 0, holding, fixMath;
       
       for (i = 0; i < holdings.length; i++){
+        
         if (string === 'cost'){
-          var holding = parseFloat(holdings[i].amount*holdings[i].cost);
+          
+          // Encapsulate this logic in a function
+          fixMath = holdings[i].cost*100000000;
+          holding = holdings[i].amount*fixMath;
+          holding = holding/100000000;
         } else if (string === 'gain') {
-           var holding = parseFloat(holdings[i].amount*currencyValue(holdings[i].coin));
+          fixMath = currencyValue(holdings[i].coin)*100000000;
+          holding = holdings[i].amount*fixMath;
+          holding = holding/100000000;
         }
+        
         amount += holding;
       }
       
-      return amount;
+      return parseFloat(amount);
     };
     
     if ((TODAY.getTime() - storage.get('timestamp')) >= ONE_WEEK || !storage.get('coins')) {

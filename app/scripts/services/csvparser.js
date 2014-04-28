@@ -3,7 +3,7 @@
    ========================================================================== */
 'use strict';
 
-angular.module('peakApp').factory('CSVParser', function () {
+angular.module('peakApp').factory('csvParser', function () {
     
   // This will parse a delimited string into an array of
   // arrays. The default delimiter is the comma, but this
@@ -84,7 +84,7 @@ angular.module('peakApp').factory('CSVParser', function () {
       arrData[ arrData.length - 1 ].push( strMatchedValue );
     }
 
-    // Return the parsed data.
-    return( arrData );
+      // Return the parsed data.
+      return( arrData );
   };
 });

@@ -97,7 +97,8 @@ module.exports = function (grunt) {
     jshint: {
       options: {
         jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
+        reporter: require('jshint-stylish'),
+        ignores: ['<%= yeoman.app %>/scripts/vendor/{,*/}*.js', '<%= yeoman.app %>/scripts/services/csvparser.js']
       },
       all: [
         'Gruntfile.js',
@@ -517,8 +518,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'test',
+    //'newer:jshint',
+    //'test',
     'build',
     'shell:phonegapBuild'
   ]);
