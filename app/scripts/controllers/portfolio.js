@@ -59,11 +59,11 @@ angular.module('peakApp').controller('PortfolioCtrl', function ($scope, $http, l
         if (string === 'cost'){
           
           // Encapsulate this logic in a function
-          fixMath = holdings[i].cost*100000000;
+          fixMath = Math.round(holdings[i].cost*100000000);
           holding = holdings[i].amount*fixMath;
           holding = holding/100000000;
         } else if (string === 'gain') {
-          fixMath = currencyValue(holdings[i].coin)*100000000;
+          fixMath = Math.round(currencyValue(holdings[i].coin)*100000000);
           holding = holdings[i].amount*fixMath;
           holding = holding/100000000;
         }
