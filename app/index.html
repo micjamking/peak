@@ -44,16 +44,16 @@
         
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
-            <li><label class="branding"><span class="green"><i class="fi-mountains"></i></span> Peak</label></li>
+            <li><label class="branding"><i class="fi-mountains"></i> Peak</label></li>
             <li ng-class="{'selected': menuItem === 'overview'}">
               <a ng-click="menuItem = 'overview'; main.changeView('/overview')">overview</a>
             </li>
             <li ng-class="{'selected': menuItem === 'portfolio'}">
               <a ng-click="menuItem = 'portfolio'; main.changeView('/portfolio')">portfolio</a>
             </li>
-            <li ng-class="{'selected': menuItem === 'watchlist'}">
+<!--             <li ng-class="{'selected': menuItem === 'watchlist'}">
               <a ng-click="menuItem = 'watchlist'; main.changeView('/watchlist')">watchlist</a>
-            </li>
+            </li> -->
             <li><label>Markets</label></li>
             <li ng-class="{'selected': menuItem === 'bittrex'}">
                 <a ng-click="menuItem = 'bittrex'; main.changeView('/bittrex')">bittrex</a>
@@ -78,6 +78,7 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -87,6 +88,8 @@
     <script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
     <script src="bower_components/fastclick/lib/fastclick.js"></script>
     <!-- endbower -->
+    <script src="scripts/vendor/kendo.dataviz.js"></script>
+    <script src="bower_components/angular-kendo/angular-kendo.js"></script>
     <script src="bower_components/angular-foundation/mm-foundation-tpls-0.2.0-SNAPSHOT.js"></script>
     <!-- endbuild -->
 
@@ -103,6 +106,8 @@
     <script src="scripts/controllers/bittrex.js"></script>
     <!-- Directives -->
     <script src="scripts/directives/scrollview.js"></script>
+    <!-- Services -->
+    <script src="scripts/services/csvparser.js"></script>
     <!-- endbuild -->
 </body>
 </html>

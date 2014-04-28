@@ -33,7 +33,6 @@ angular.module('peakApp').controller('PortfolioCtrl', function ($scope, $http, l
             // Process response & store in $scope property
             $scope.data = data;
             storage.set('coins', data);
-            storage.set('timestamp', TODAY.getTime());
           });
       };
     
@@ -52,27 +51,44 @@ angular.module('peakApp').controller('PortfolioCtrl', function ($scope, $http, l
     };
     
     // Grab total from localStorage or set total to 0
-    total = function(){
+    total = function(string){
       var i, amount = 0;
       
       for (i = 0; i < holdings.length; i++){
-        amount += holdings[i].amount*holdings[i].cost;
+        if (string === 'cost'){
+          var holding = parseFloat(holdings[i].amount*holdings[i].cost);
+        } else if (string === 'gain') {
+           var holding = parseFloat(holdings[i].amount*currencyValue(holdings[i].coin));
+        }
+        amount += holding;
       }
       
       return amount;
     };
     
-    if ((TODAY.getTime() - storage.get('timestamp')) >= ONE_WEEK) {
+    if ((TODAY.getTime() - storage.get('timestamp')) >= ONE_WEEK || !storage.get('coins')) {
       getMarket();
     } else {
       $scope.data = storage.get('coins');
     }
     
+    var currencyValue = function(coin){
+      var i, value;
+      
+      for (i = 0; i < $scope.data.length; i++){
+        if ($scope.data[i].code === coin){
+          value = $scope.data[i].last_price;
+        }
+      }
+      return value;
+    };
+    
     return {
       totalValue: total,
       holdings: holdings,
       addHolding: addHolding,
-      removeHolding: removeHolding
+      removeHolding: removeHolding,
+      currencyValue: currencyValue
     };
   })();
 });

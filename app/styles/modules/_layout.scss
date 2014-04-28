@@ -40,3 +40,46 @@ body {
 .main-section {
     height: 100%;
 }
+
+.overview {
+    
+    > .pricing {
+        height: emCalc(204px);
+        background-color: #f6f6f6;
+        margin-bottom: emCalc(20px);
+
+        > .small-12:first-child {
+            padding-top: emCalc(20px);
+            
+            > .subheader {
+                margin-bottom: emCalc(10px);
+            }
+
+            .price {
+                font-size: emCalc(60px);
+                margin: 0;
+                transform: translateY(0px);
+                transition: all 0.5s ease;
+
+                &.ng-hide-add,
+                &.ng-hide-remove {
+                    display: block !important;
+                }
+
+                &.ng-hide {
+                    opacity:0;
+                    transform: translateY(-10px);
+                }
+            }
+        }
+    }
+    
+    .chart {
+        height:80px;
+        width: 100%;
+    }
+    
+    h4 {
+        margin: 0;
+    }
+}

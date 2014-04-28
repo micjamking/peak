@@ -1,7 +1,19 @@
 <!-- Portfolio View -->
 <div class="container portfolio" ng-cloak>
     <ul class="pricing-table">
-        <li class="price">{{ portfolio.totalValue() }} BTC</li>
+        <li class="price">
+        <div class="row">
+            <div class="small-12 columns">
+                <h1>{{ portfolio.totalValue('gain') | number:8 }} BTC</h1>
+            </div>
+            <div class="small-12 columns">
+                <h6 class="text-center" ng-cloak
+                    ng-class="{ true:'positive', false:'negative'}[portfolio.totalValue('gain') - portfolio.totalValue('cost') > 0]">
+                    ( {{ ((portfolio.totalValue('gain') - portfolio.totalValue('cost')) / portfolio.totalValue('cost')) * 100 | number:2 }}% )
+                </h6>
+            </div>
+        </div>
+        </li>
         <li class="title header">
             <div class="row"> 
                 <div class="small-4 columns text-left">
@@ -11,7 +23,7 @@
                     Amount
                 </div>
                 <div class="small-4 columns text-right">
-                    Value (BTC)
+                    Change %
                 </div>
             </div>
         </li>
@@ -48,7 +60,8 @@
                  ng-swipe-right="currency.delete = false">
                 <div class="small-4 columns text-left">{{ currency.coin }}</div>
                 <div class="small-4 columns text-left">{{ currency.amount }}</div>
-                <div class="small-4 columns text-left">{{ currency.amount*currency.cost | number:8}}</div>
+                <div class="small-4 columns text-right"
+                     ng-class="{ true:'positive', false:'negative'}[(portfolio.currencyValue(currency.coin) - currency.cost) > 0]">{{ ((portfolio.currencyValue(currency.coin) - currency.cost)/currency.cost) * 100 | number:2}}%</div>
             </div>
             <button type="button" class="button alert small"
                     ng-click="portfolio.removeHolding($index)">Delete</button>

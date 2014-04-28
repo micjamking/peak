@@ -11,10 +11,14 @@
     "angular-loading-bar": "~0.4.0",
     "angular-local-storage": "~0.0.1",
     "angular-foundation": "git@github.com:circlingthesun/angular-foundation.git#gh-pages",
-    "foundation": "~5.2.2"
+    "foundation": "~5.2.2",
+    "angular-kendo": "~1.0.1"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",
     "angular-scenario": "1.2.6"
+  },
+  "resolutions": {
+    "jquery": ">= 2.1.0"
   }
 }
