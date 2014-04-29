@@ -8,6 +8,7 @@
             </div>
             <div class="small-12 columns">
                 <h6 class="text-center" ng-cloak
+                    ng-show="portfolio.totalValue('gain')"
                     ng-class="{ true:'positive', false:'negative'}[portfolio.totalValue('gain') - portfolio.totalValue('cost') > 0]">
                     ( {{ ((portfolio.totalValue('gain') - portfolio.totalValue('cost')) / portfolio.totalValue('cost')) * 100 | number:2 }}% )
                 </h6>
