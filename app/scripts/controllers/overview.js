@@ -26,7 +26,7 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
           var i, newArray = [];
 
           // Loop through array
-          for (i = 0; i < array.length; i += 120){
+          for (i = 0; i < 120; i += 2){
             var obj = {};
             obj.date = new Date(array[i][0]);
             obj.value = parseFloat(array[i][1]);
@@ -64,20 +64,24 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
       
         if ( int1 > int2) {
           return {
-            max: int1,
-            min: int2,
-            majorUnit: int1 - int2,
+            max: int1 + (int1/50),
+            min: int2 - (int2/50),
+            majorUnit: Math.floor(int1 - int2),
             color: '#db4c3c'
           };
         } else {
           return {
-            max: int2,
-            min: int1,
-            majorUnit: int2 - int1,
+            max: int2 + (int2/50),
+            min: int1 - (int1/50),
+            majorUnit: Math.floor(int2 - int1),
             color: '#6bbf46'
           };
         }
       })();
+      
+      console.log(chart.min);
+      console.log(chart.max);
+      console.log(chart.majorUnit);
       
       $scope.chart = {
         theme: 'metro',
