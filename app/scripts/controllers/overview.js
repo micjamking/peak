@@ -79,10 +79,6 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
         }
       })();
       
-      console.log(chart.min);
-      console.log(chart.max);
-      console.log(chart.majorUnit);
-      
       $scope.chart = {
         theme: 'metro',
         dataSource: {

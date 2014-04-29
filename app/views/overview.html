@@ -7,7 +7,7 @@
         </div>
         <div class="small-12 columns">
             <h6 class="text-center" ng-show="bitcoinPrice" ng-cloak
-                ng-class="{ true:'positive', false:'negative'}[bitcoinPrice - bitcoinChart[bitcoinChart.length - 2].value > 0]">{{ bitcoinPrice - bitcoinChart[bitcoinChart.length - 2].value | number:2 }} ( {{ ((bitcoinPrice - bitcoinChart[bitcoinChart.length - 2].value) / bitcoinChart[bitcoinChart.length - 2].value) * 100 | number:2 }}% )</h6>
+                ng-class="{ true:'positive', false:'negative'}[bitcoinPrice - bitcoinChart[0].value > 0]">{{ bitcoinPrice - bitcoinChart[0].value | number:2 }} ( {{ ((bitcoinPrice - bitcoinChart[0].value) / bitcoinChart[0].value) * 100 | number:2 }}% )</h6>
         </div>
     </div>
     <div class="row">
