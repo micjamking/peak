@@ -2,7 +2,7 @@
 <div class="container overview" ng-cloak>
     <div class="row pricing">
         <div class="small-12 columns">
-            <h6 class="subheader text-center">Bitcoin</h6>
+<!--             <h6 class="subheader text-center">Bitcoin</h6> -->
             <h1 class="text-center price" ng-show="bitcoinPrice" ng-cloak>{{ bitcoinPrice }}</h1>
         </div>
         <div class="small-12 columns">
@@ -12,8 +12,7 @@
     </div>
     <div class="row">
         <div class="small-12 columns">
-            <h6>24hr Price Graph</h6>
-            <hr/>
+            <h6 class="text-center subheader">BTC 24hr Price</h6>
             <div kendo-chart k-options="chart" class='chart'></div>
         </div>
     </div>
