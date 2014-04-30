@@ -45,7 +45,7 @@ body {
     
     > .pricing {
         height: emCalc(204px);
-        background-color: #f6f6f6;
+        /* background-color: #f6f6f6; */
         margin-bottom: emCalc(20px);
 
         > .small-12:first-child {
@@ -76,7 +76,7 @@ body {
     
     .chart {
         margin-top: emCalc(20px);
-        height:220px;
+        height:260px;
         width: 100%;
     }
     

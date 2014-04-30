@@ -4,14 +4,14 @@
 'use strict';
 
 angular.module('peakApp').factory('csvParser', function () {
-    
+
   // This will parse a delimited string into an array of
   // arrays. The default delimiter is the comma, but this
   // can be overriden in the second argument.
   return function( strData, strDelimiter ){
     // Check to see if the delimiter is defined. If not,
     // then default to comma.
-    strDelimiter = (strDelimiter || ",");
+    strDelimiter = (strDelimiter || ',');
 
     // Create a regular expression to parse the CSV values.
     var objPattern = new RegExp(
@@ -25,7 +25,7 @@ angular.module('peakApp').factory('csvParser', function () {
             // Standard fields.
             "([^\"\\" + strDelimiter + "\\r\\n]*))"
         ),
-        "gi"
+        'gi'
         );
 
 

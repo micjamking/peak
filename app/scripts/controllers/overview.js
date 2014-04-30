@@ -1,138 +1,173 @@
 /* ==========================================================================
-   Controller - Overview
-   ========================================================================== */
+	 Controller - Overview
+	 ========================================================================== */
 'use strict';
 
 angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, localStorageService, $interval, csvParser) {
 
-    
-    $scope.overview = (function(){
-      // Private Variables
-      var getMarket, dataProcessing, chart;
-      var TODAY   = new Date();
-      var ONE_DAY = (60 * 60 * 24) * 1000;
+	// Global Module
+	$scope.overview = (function(){
 
-      // JSON Proxy
-      var PROXY = 'http://glacial-chamber-5485.herokuapp.com/?url=';
+		// Private Variables
+		var dataProcessing, getMarket, chartColors;
 
-      // API Endpoint
-      var BTC_PRICE = 'https://coinbase.com/api/v1/prices/spot_rate';
+		var TODAY = new Date();
 
-      // API Endpoint
-      var BTC_HIST = 'https://coinbase.com/api/v1/prices/historical';
+		// 30 Seconds
+		var HALF_MIN  = 60000;
 
-      // Private Function
-      dataProcessing = function(array){
-          var i, newArray = [];
+		// JSON Proxy
+		var PROXY     = 'http://glacial-chamber-5485.herokuapp.com/?url=';
 
-          // Loop through array
-          for (i = 0; i < 120; i += 2){
-            var obj = {};
-            obj.date = new Date(array[i][0]);
-            obj.value = parseFloat(array[i][1]);
-            newArray.push(obj);
-          }
-          
-          // Return array in reverse
-          return newArray.reverse();
-        };
+		// API Endpoint
+		var BTC_PRICE = 'https://coinbase.com/api/v1/prices/spot_rate';
 
-      // Private Function
-      getMarket = (function(){
+		// API Endpoint
+		var BTC_HIST  = 'https://coinbase.com/api/v1/prices/historical';
 
-          // API Call
-          $http.get(PROXY + encodeURIComponent(BTC_PRICE)).success(function(data){
-              // Process response & store in $scope property
-              $scope.bitcoinPrice = data.amount;
-            });
-          
-          if ((TODAY.getTime() - localStorageService.get('timestamp')) >= ONE_DAY) {
-            $http.get(PROXY + encodeURIComponent(BTC_HIST)).error(function(data){
-              localStorageService.set('timestamp', TODAY.getTime());
-              localStorageService.set('chartData', dataProcessing(csvParser(data.error)));
-              $scope.bitcoinChart = dataProcessing(csvParser(data.error));
-            });
-          } else {
-            $scope.bitcoinChart = localStorageService.get('chartData');
-          }
-        })();
-      
-      chart = (function(){
-        
-        var int1 = $scope.bitcoinChart[0].value;
-        var int2 = $scope.bitcoinChart[$scope.bitcoinChart.length - 1].value;
-      
-        if ( int1 > int2) {
-          return {
-            max: int1 + (int1/50),
-            min: int2 - (int2/50),
-            majorUnit: Math.floor(int1 - int2),
-            color: '#db4c3c'
-          };
-        } else {
-          return {
-            max: int2 + (int2/50),
-            min: int1 - (int1/50),
-            majorUnit: Math.floor(int2 - int1),
-            color: '#6bbf46'
-          };
-        }
-      })();
-      
-      $scope.chart = {
-        theme: 'metro',
-        dataSource: {
-          data: $scope.bitcoinChart
-        },
-        legend: {
-          position: 'bottom',
-          visible: false
-        },
-        seriesDefaults: {
-          type: 'area',
-          area: {
-            line: {
-              style: 'smooth'
-            }
-          }
-        },
-        series: [{
-          field: 'value',
-          categoryField: 'date',
-          color: chart.color
-        }],
-        valueAxis: {
-          visible: false,
-          majorUnit: chart.majorUnit,
-          min: chart.min,
-          max: chart.max,
-          line: {
-            visible: false
-          },
-          majorGridLines: {
-            visible: false
-          }
-        },
-        categoryAxis: {
-          visible: false,
-          majorGridLines: {
-            visible: false
-          }
-        },
-        tooltip: {
-          visible: false
-        },
-        chartArea: {
-          background: ''
-        }
-      };
-      
-      // Reload data every 60 seconds
-      $interval($scope.getMarket, 60000);
+		// Process returned data from API
+		dataProcessing = function(array){
+			var i, newArray = [];
 
-      // Public API
-      return {
-          update: getMarket
-        };
-    })();
-  });
+			// Loop through array
+			for (i = 0; i < 120; i += 2){
+				var obj   = {};
+				obj.date  = new Date(array[i][0]);
+				obj.value = parseFloat(array[i][1]);
+				newArray.push(obj);
+			}
+
+			// Return array in reverse
+			return newArray.reverse();
+		};
+
+		// Choose chart colors base on trajectory
+		chartColors = function(array){
+
+			// Private Variables
+			var int1 = array[0].value;
+			var int2 = $scope.bitcoinPrice;
+
+			// Create Chart Parameters
+			if ( int1 > int2) {
+				array.color = '#db4c3c';
+			} else {
+				array.color = '#6bbf46';
+			}
+
+			return array;
+		};
+
+		// Get market data
+		getMarket = function(){
+
+			// Get timestamp
+			var TODAY = new Date();
+
+			// Clear localstorage for controller
+			localStorageService.remove('timestamp');
+			localStorageService.remove('bitcoinPrice');
+			localStorageService.remove('historicalData');
+
+			// Set timestamp in localstorage
+			localStorageService.set('timestamp', TODAY.getTime());
+
+			// Get Price from Coinbase
+			$http.get(PROXY + encodeURIComponent(BTC_PRICE)).success(function(data){
+
+				// Store response data in $scope property
+				$scope.bitcoinPrice = data.amount;
+
+				// Set data in localstorage
+				localStorageService.set('bitcoinPrice', data.amount);
+			});
+
+			$http.get(PROXY + encodeURIComponent(BTC_HIST)).error(function(data){
+
+				// Store response data in local storage
+				$scope.historicalData = dataProcessing(csvParser(data.error));
+
+				// Create chart colors based on response data
+				chartColors($scope.historicalData);
+
+				// Set timestamp in localstorage
+				localStorageService.set('historicalData', dataProcessing(csvParser(data.error)));
+
+			});
+		};
+
+		// Create data array
+		$scope.historicalData = [];
+
+		// Assign temp color property
+		$scope.historicalData.color = 'transparent';
+
+		// Chart configuration object
+		$scope.chart = {
+			theme: 'metro',
+			dataSource: {
+				data: $scope.historicalData
+			},
+			legend: {
+				position: 'bottom',
+				visible: false
+			},
+			seriesDefaults: {
+				type: 'area',
+				area: {
+					line: {
+						style: 'smooth'
+					}
+				}
+			},
+			series: [{
+				field: 'value',
+				color: $scope.historicalData.color
+			}],
+			valueAxis: {
+				visible: false,
+				line: {
+					visible: false
+				},
+				majorGridLines: {
+					visible: false
+				}
+			},
+			categoryAxis: {
+				visible: false,
+				majorGridLines: {
+					visible: false
+				}
+			},
+			tooltip: {
+				visible: false
+			},
+			chartArea: {
+				background: ''
+			}
+		};
+
+		// Update chart properties when scope updates
+		$scope.$watchCollection('historicalData', function(newData) {
+			$scope.chart.dataSource.data = newData;
+			$scope.chart.series[0].color = newData.color;
+		});
+
+		// Reload data every 30 seconds
+		$interval(getMarket, 60000);
+
+		// Check if enough time has passed & there is no localstorage before
+		// grabbing market data
+		return (function(){
+			if ((TODAY.getTime() - localStorageService.get('timestamp')) >= HALF_MIN ||
+				!localStorageService.get('bitcoinPrice') ||
+				!localStorageService.get('historicalData')) {
+				getMarket();
+			} else {
+				$scope.bitcoinPrice   = localStorageService.get('bitcoinPrice');
+				$scope.historicalData = localStorageService.get('historicalData');
+			}
+		})();
+
+	})();
+});
