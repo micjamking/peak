@@ -3,7 +3,7 @@
 	 ========================================================================== */
 'use strict';
 
-angular.module('peakApp').controller('PoloniexCtrl', function ($scope, $http, $interval) {
+angular.module('peakApp').controller('PoloniexCtrl', function ($scope, $interval, api) {
 
 	$scope.awesomeThings = [
 		'HTML5 Boilerplate',
@@ -18,10 +18,7 @@ angular.module('peakApp').controller('PoloniexCtrl', function ($scope, $http, $i
 	$scope.market = (function(){
 
 		// Private Variables
-		var getMarket, dataProcessing, url, proxy;
-
-		// JSON Proxy
-		proxy = 'http://glacial-chamber-5485.herokuapp.com/?url=';
+		var getMarket, dataProcessing, url;
 
 		// API Endpoint
 		url = 'https://poloniex.com/public?command=returnTicker';
@@ -55,10 +52,10 @@ angular.module('peakApp').controller('PoloniexCtrl', function ($scope, $http, $i
 		getMarket = function(){
 
 			// API Call
-			$http.get(proxy + encodeURIComponent(url)).success(function(data){
-				//console.log(dataProcessing(data));
+			api.query({url:url}, function(data){ 
+
 				// Process response & store in $scope property
-				$scope.data = dataProcessing(data);
+				$scope.data = dataProcessing(data); 
 			});
 		};
 

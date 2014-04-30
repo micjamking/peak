@@ -3,16 +3,13 @@
    ========================================================================== */
 'use strict';
 
-angular.module('peakApp').controller('MintPalCtrl', function ($scope, $http, $interval) {
+angular.module('peakApp').controller('MintPalCtrl', function ($scope, $interval, api) {
 	
 	// Market Module
 	$scope.market = (function(){
 		
 		// Private Variables
-		var getMarket, dataProcessing, url, proxy;
-		
-		// JSON Proxy
-		proxy = 'http://glacial-chamber-5485.herokuapp.com/?url=';
+		var getMarket, dataProcessing, url;
 		
 		// API Endpoint
 		url = 'https://api.mintpal.com/v1/market/summary/BTC';
@@ -35,11 +32,10 @@ angular.module('peakApp').controller('MintPalCtrl', function ($scope, $http, $in
 		// Private Function
 		getMarket = function(){
 			
-			// API Call
-			$http.get(proxy + encodeURIComponent(url)).success(function(data){
-				
+			api.query({url:url}, function(data){ 
+
 				// Process response & store in $scope property
-				$scope.data = dataProcessing(data);
+				$scope.data = dataProcessing(data); 
 			});
 		};
 		

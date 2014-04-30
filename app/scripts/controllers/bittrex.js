@@ -3,7 +3,7 @@
 	 ========================================================================== */
 'use strict';
 
-angular.module('peakApp').controller('BittrexCtrl', function ($scope, $http, $interval) {
+angular.module('peakApp').controller('BittrexCtrl', function ($scope, $interval, api) {
 
 	$scope.awesomeThings = [
 		'HTML5 Boilerplate',
@@ -15,10 +15,7 @@ angular.module('peakApp').controller('BittrexCtrl', function ($scope, $http, $in
 	$scope.market = (function(){
 
 		// Private Variables
-		var getMarket, dataProcessing, url, proxy;
-
-		// JSON Proxy
-		proxy = 'http://glacial-chamber-5485.herokuapp.com/?url=';
+		var getMarket, dataProcessing, url;
 
 		// API Endpoint
 		url = 'https://bittrex.com/api/v1/public/getmarketsummaries';
@@ -47,10 +44,10 @@ angular.module('peakApp').controller('BittrexCtrl', function ($scope, $http, $in
 		getMarket = function(){
 
 			// API Call
-			$http.get(proxy + encodeURIComponent(url)).success(function(data){
+			api.query({url:url}, {query: { method:'GET'}}, function(data){ 
+
 				// Process response & store in $scope property
 				$scope.data = dataProcessing(data.result);
-				//console.log($scope.data);
 			});
 		};
 

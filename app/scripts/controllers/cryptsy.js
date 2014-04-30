@@ -3,7 +3,7 @@
 	 ========================================================================== */
 'use strict';
 
-angular.module('peakApp').controller('CryptsyCtrl', function ($scope, $http, $interval) {
+angular.module('peakApp').controller('CryptsyCtrl', function ($scope, $interval, api) {
 
 	$scope.awesomeThings = [
 		'HTML5 Boilerplate',
@@ -15,10 +15,7 @@ angular.module('peakApp').controller('CryptsyCtrl', function ($scope, $http, $in
 	$scope.market = (function(){
 
 		// Private Variables
-		var getMarket, dataProcessing, url, proxy;
-
-		// JSON Proxy
-		proxy = 'http://glacial-chamber-5485.herokuapp.com/?url=';
+		var getMarket, dataProcessing, url;
 
 		// API Endpoint
 		url = 'http://pubapi.cryptsy.com/api.php?method=marketdatav2';
@@ -50,10 +47,10 @@ angular.module('peakApp').controller('CryptsyCtrl', function ($scope, $http, $in
 		getMarket = function(){
 
 			// API Call
-			$http.get(proxy + encodeURIComponent(url)).success(function(data){
+			api.query({url:url}, function(data){ 
 
 				// Process response & store in $scope property
-				$scope.data = dataProcessing(data.return.markets);
+				$scope.data = dataProcessing(data); 
 			});
 		};
 
