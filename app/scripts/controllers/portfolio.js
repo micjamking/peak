@@ -78,22 +78,27 @@ angular.module('peakApp').controller('PortfolioCtrl', function ($scope, $http, l
 		// Grab total from locallocalStorageService or set total to 0
 		total = function(string){
 			var i, amount = 0, holding, fixMath;
+			
+			var satoshi = function(coin){
+				var fixMath = 0, value;
+				
+				if (string === 'cost'){
+					fixMath = Math.round(coin.cost*100000000);
+				} else if (string === 'gain') {
+					fixMath = Math.round(currencyValue(coin.coin)*100000000);	
+				}
+				
+				value 	= Math.round(coin.amount*fixMath);
+				value 	= value/100000000;
+				
+				return value;	
+			};
 
 			for (i = 0; i < holdings.length; i++){
-
-				if (string === 'cost'){
-					/* Encapsulate this logic in a function */
-					fixMath = Math.round(holdings[i].cost*100000000);
-					holding = holdings[i].amount*fixMath;
-					holding = holding/100000000;
-				} else if (string === 'gain') {
-					fixMath = Math.round(currencyValue(holdings[i].coin)*100000000);
-					holding = holdings[i].amount*fixMath;
-					holding = holding/100000000;
-				}
-
+				holding = satoshi(holdings[i]);
 				amount += holding;
 			}
+
 
 			return parseFloat(amount);
 		};
