@@ -16,8 +16,6 @@ angular.module('peakApp').directive('scrollView', function ($timeout) {
           marginTop = document.querySelector('.pricing-table.data').offsetTop,
           height    = (y - marginTop) + 'px';
 
-      console.log(height);
-
       raw.style.height = height;
     }
     
