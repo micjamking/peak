@@ -51,6 +51,8 @@ angular.module('peakApp').controller('CryptsyCtrl', function ($scope, $http, $in
 
 			// API Call
 			$http.get(proxy + encodeURIComponent(url)).success(function(data){
+				
+				console.log(data.return.markets);
 
 				// Process response & store in $scope property
 				$scope.data = dataProcessing(data.return.markets);

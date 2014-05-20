@@ -26,18 +26,36 @@ angular.module('peakApp').controller('BittrexCtrl', function ($scope, $http, $in
 		// Private Function
 		dataProcessing = function(array){
 			var i, newArray = [];
+			
+			var calculateChange = function(oldVal, newVal){
+				var change;
+				
+				oldVal = Math.round(oldVal*100000000);
+				newVal = Math.round(newVal*100000000);
+				
+				change = ((newVal - oldVal) / oldVal) * 100;
+				change = +(change.toFixed(2));
+				
+				return (isNaN(change) || change === Infinity ) ? 0 : change;
+			};
 
 			for (i = 0; i < array.length; i++) {
 
 				if (array[i].MarketName.substr(0,3) === 'BTC') {
 					array[i].MarketName = array[i].MarketName.substr(4, (array[i].MarketName.length - 1));
+					array[i].Ask = array[i].Ask ? array[i].Ask.toFixed(8) : 0;
+					array[i].Bid = array[i].Bid ? array[i].Bid.toFixed(8) : 0;
+					array[i].BaseVolume = array[i].BaseVolume ? array[i].BaseVolume.toFixed(3) : 0;
 					array[i].High = array[i].High ? array[i].High.toFixed(8) : 0;
 					array[i].Last = array[i].Last ? array[i].Last.toFixed(8) : 0;
 					array[i].Low = array[i].Low ? array[i].Low.toFixed(8) : 0;
-					array[i].BaseVolume = array[i].BaseVolume ? array[i].BaseVolume.toFixed(3) : 0;
+					array[i].PrevDay = array[i].PrevDay ? array[i].PrevDay.toFixed(8) : 0;
+					array[i].change = calculateChange(array[i].PrevDay, array[i].Last);
 					newArray.push(array[i]);
 				}
 			}
+			
+			console.log(newArray);
 
 			// Return array
 			return newArray;
