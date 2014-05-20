@@ -44,28 +44,28 @@
         
         <aside class="left-off-canvas-menu">
           <ul class="off-canvas-list">
-            <li><label class="branding"><span class="green"><i class="fi-mountains"></i></span> Peak</label></li>
+            <li><label class="branding"><i class="fi-mountains"></i> Peak</label></li>
             <li ng-class="{'selected': menuItem === 'overview'}">
-              <a href="#/overview" ng-click="menuItem = 'overview'">overview</a>
+              <a ng-click="menuItem = 'overview'; main.changeView('/overview')">overview</a>
             </li>
             <li ng-class="{'selected': menuItem === 'portfolio'}">
-              <a href="#/portfolio" ng-click="menuItem = 'portfolio'">portfolio</a>
+              <a ng-click="menuItem = 'portfolio'; main.changeView('/portfolio')">portfolio</a>
             </li>
-            <li ng-class="{'selected': menuItem === 'watchlist'}">
-              <a href="#/watchlist" ng-click="menuItem = 'watchlist'">watchlist</a>
-            </li>
+<!--             <li ng-class="{'selected': menuItem === 'watchlist'}">
+              <a ng-click="menuItem = 'watchlist'; main.changeView('/watchlist')">watchlist</a>
+            </li> -->
             <li><label>Markets</label></li>
             <li ng-class="{'selected': menuItem === 'bittrex'}">
-                <a href="#/bittrex" ng-click="menuItem = 'bittrex'">bittrex</a>
+                <a ng-click="menuItem = 'bittrex'; main.changeView('/bittrex')">bittrex</a>
             </li>
             <li ng-class="{'selected': menuItem === 'cryptsy'}">
-              <a href="#/cryptsy" ng-click="menuItem = 'cryptsy'">cryptsy</a>
+              <a ng-click="menuItem = 'cryptsy'; main.changeView('/cryptsy')">cryptsy</a>
             </li>
             <li ng-class="{'selected': menuItem === 'mintpal'}">
-              <a href="#/mintpal" ng-click="menuItem = 'mintpal'">mintPal</a>
+              <a ng-click="menuItem = 'mintpal'; main.changeView('/mintpal')">mintpal</a>
             </li>
             <li ng-class="{'selected': menuItem === 'poloniex'}">
-                <a href="#/poloniex" ng-click="menuItem = 'poloniex'">poloniex</a>
+                <a ng-click="menuItem = 'poloniex'; main.changeView('/poloniex')">poloniex</a>
             </li>
           </ul>
         </aside>
@@ -78,15 +78,18 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/fastclick/lib/fastclick.js"></script>
-    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
     <!-- endbower -->
+    <script src="scripts/vendor/kendo.dataviz.js"></script>
+    <script src="bower_components/angular-kendo/angular-kendo.js"></script>
     <script src="bower_components/angular-foundation/mm-foundation-tpls-0.2.0-SNAPSHOT.js"></script>
     <!-- endbuild -->
 
@@ -103,6 +106,8 @@
     <script src="scripts/controllers/bittrex.js"></script>
     <!-- Directives -->
     <script src="scripts/directives/scrollview.js"></script>
+    <!-- Services -->
+    <script src="scripts/services/csvparser.js"></script>
     <!-- endbuild -->
 </body>
 </html>

@@ -1,1 +1,22 @@
-<p>This is the overview view.</p>
+<!-- Overview View -->
+<div class="container overview" ng-cloak>
+	<div class="row pricing">
+		<div class="small-12 columns">
+<!--             <h6 class="subheader text-center">Bitcoin</h6> -->
+			<h1 class="text-center price" ng-show="bitcoinPrice" ng-cloak>{{ bitcoinPrice }}</h1>
+		</div>
+		<div class="small-12 columns">
+			<h6 class="text-center" ng-cloak
+				ng-show="bitcoinPrice && historicalData"
+				ng-class="{ true:'positive', false:'negative'}[bitcoinPrice - historicalData[0].value > 0]">
+				{{ bitcoinPrice - historicalData[0].value | number:2 }} ( {{ ((bitcoinPrice - historicalData[0].value) / historicalData[0].value) * 100 | number:2 }}% )
+			</h6>
+		</div>
+	</div>
+	<div class="row">
+		<!-- <h6 class="text-center subheader">BTC 24hr Price</h6> -->
+		<div kendo-chart="kChart" k-options="chart" k-rebind="chart" class="chart"></div>
+		<div class="small-12 columns">
+		</div>
+	</div>
+</div>

@@ -10,7 +10,8 @@ angular.module('peakApp', [
   'ngTouch',
   'chieffancypants.loadingBar',
   'mm.foundation',
-  'LocalStorageModule'
+  'LocalStorageModule',
+  'kendo.directives'
 ])
 .run(function(){
     FastClick.attach(document.body);

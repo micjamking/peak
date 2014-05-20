@@ -56,7 +56,7 @@ angular.module('peakApp').controller('PoloniexCtrl', function ($scope, $http, $i
 
 			// API Call
 			$http.get(proxy + encodeURIComponent(url)).success(function(data){
-				console.log(dataProcessing(data));
+				//console.log(dataProcessing(data));
 				// Process response & store in $scope property
 				$scope.data = dataProcessing(data);
 			});

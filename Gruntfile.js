@@ -97,7 +97,8 @@ module.exports = function (grunt) {
     jshint: {
       options: {
         jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
+        reporter: require('jshint-stylish'),
+        ignores: ['<%= yeoman.app %>/scripts/vendor/{,*/}*.js', '<%= yeoman.app %>/scripts/services/csvparser.js']
       },
       all: [
         'Gruntfile.js',
@@ -149,21 +150,25 @@ module.exports = function (grunt) {
         src: '<%= yeoman.app %>/index.html',
         ignorePath: '<%= yeoman.app %>/',
         exclude: [
-          '<%= yeoman.app %>/bower_components/jquery',
+          //'<%= yeoman.app %>/bower_components/jquery',
           '<%= yeoman.app %>/bower_components/jquery.cookie',
           '<%= yeoman.app %>/bower_components/jquery-placeholder',
-          '<%= yeoman.app %>/bower_components/foundation/js/foundation.js'
+          '<%= yeoman.app %>/bower_components/foundation/js/foundation.js',
+          '<%= yeoman.app %>/bower_components/angular-kendo/build/angular-kendo.js',
+          '<%= yeoman.app %>/bower_components/kendo-ui/dist/kendo.ui.core.min.js'
         ]
       },
       test: {
         src: 'karma.conf.js',
         exclude: [
-          '<%= yeoman.app %>/bower_components/jquery',
+          // '<%= yeoman.app %>/bower_components/jquery',
           '<%= yeoman.app %>/bower_components/jquery.cookie',
           '<%= yeoman.app %>/bower_components/jquery-placeholder',
           '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
           '<%= yeoman.app %>/bower_components/foundation/js/foundation.js',
-          '<%= yeoman.app %>/bower_components/angular-scenario/angular-scenario.js'
+          '<%= yeoman.app %>/bower_components/angular-scenario/angular-scenario.js',
+          '<%= yeoman.app %>/bower_components/angular-kendo/build/angular-kendo.js',
+          '<%= yeoman.app %>/bower_components/kendo-ui/dist/kendo.ui.core.min.js'
         ],
         devDependencies: true,
         fileTypes: {
@@ -513,8 +518,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'test',
+    //'newer:jshint',
+    //'test',
     'build',
     'shell:phonegapBuild'
   ]);
