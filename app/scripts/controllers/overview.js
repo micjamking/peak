@@ -10,7 +10,8 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
 
 		// Private Variables
 		var dataProcessing, getMarket, chartColors;
-
+		
+		// Current Timestamp
 		var TODAY = new Date();
 
 		// 30 Seconds
@@ -45,14 +46,18 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
 		chartColors = function(array){
 
 			// Private Variables
-			var int1 = array[0].value;
-			var int2 = $scope.bitcoinPrice;
+			var int1 = $scope.bitcoinPrice;
+			var int2 = array[0].value;
 
-			// Create Chart Parameters
-			if ( int1 > int2) {
-				array.color = '#db4c3c';
-			} else {
+			// Set chart colors
+			if ( int1 >= int2) {
+				
+				// Green
 				array.color = '#6bbf46';
+			} else {
+				
+				// Red
+				array.color = '#db4c3c';
 			}
 
 			return array;
@@ -153,7 +158,7 @@ angular.module('peakApp').controller('OverviewCtrl', function ($scope, $http, lo
 			$scope.chart.series[0].color = newData.color;
 		});
 
-		// Reload data every 30 seconds
+		// Reload data every 60 seconds
 		$interval(getMarket, 60000);
 
 		// Check if enough time has passed & there is no localstorage before
